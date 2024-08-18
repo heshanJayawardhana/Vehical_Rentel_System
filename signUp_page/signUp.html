@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <link rel="shortcut icon" href="../Images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/signUpStyles.css">
+</head>
+<body>
+
+    <div class="backgroud_Box">
+        <div class="smallBox">
+            <!-- logo img -->
+            <a href="">
+                <img src="../images/logo_trpnt_bg.png" alt="">
+            </a>
+
+            <!-- toggle btn -->
+             <button id="toggleSignUp">Sign Up as <span id="toggleType">Customer</span></button>
+        </div>
+        <div class="smallBox">
+            <h3>Sign Up as <span id="toggleTopic">Customer</span></h3>
+            <form action="" method="post">
+                
+                <div class="registerClolumn">
+                    <fieldset>
+                        <input type="text" name="firstName" id="firstName" placeholder="First Name"><br>
+                        <input type="text" name="lastName" id="lastName" placeholder="Last Name"><br>
+                        
+                        <div class="DOB">
+                        <label for="birthday">Date of Birthday</label>
+                        <input type="date" name="birthday" id="birthday" placeholder="Date of Birthday"><br>
+                        </div>
+
+                        <div class="gender">
+                            <p>Gender</p>
+                            <div class="genBlock">
+                                <div class="gen">
+                                    <input type="radio" name="gender" id="male" value="male">
+                                    <label for="male">Male</label>
+                                </div>
+                                <div class="gen">
+                                    <input type="radio" name="gender" id="female" value="female">
+                                    <label for="female">Female</label>
+                                </div>
+                            </div>
+                        </div><br>
+            
+                        <input type="text" name="NIC" id="NIC" placeholder="NIC Number"><br>
+                        <input type="text" name="licenNumber" id="licenNumber" placeholder="Driving Licence Number"><br>
+                        
+                        <div class="continueBtn">
+                            <button>NEXT</button>
+                        </div>
+            
+                    </fieldset>
+            
+                    <fieldset>
+            
+                        <textarea name="address" id="address" placeholder="Address ..."></textarea><br>
+                        <input type="tel" name="tel" id="tel" placeholder="Contact Number"><br>
+                        <input type="email" name="email" id="email" placeholder="Email"><br>
+                       
+                        <div class="PDF">
+                            <label for="NIC_PDF">Upload PDF of Your NIC</label>
+                            <input type="file" name="NicPdf" id="NicPdf" placeholder="PDF of NIC"><br>
+                        </div>
+
+                        <div class="PDF">
+                            <label for="LicenPDF">Upload PDF of Your Driving Licen</label>
+                            <input type="file" name="licenPDF" id="licenPDF" placeholder="PDF of Driving Licen"><br>
+                        </div>
+            
+                        <div class="continueBtn">
+                            <button>PREVIOUS</button>
+                            <button>NEXT</button>
+                        </div>
+                        
+                    </fieldset>
+                    
+                    <fieldset>
+                        
+                        <div class="password">
+                            <label for="password">Enter Your Password</label>
+                            <input type="password" name="password" id="password" placeholder="Enter Your Password">
+                        </div>
+
+                        <div class="cpassword">
+                            <label for="cpassword">Confirm Your Password</label>
+                            <input type="password" name="cPassword" id="cPassword" placeholder="Confirm Your Password">
+                            <div id="pwdError"></div>
+                        </div>
+                    
+                        <div class="continueBtn">
+                            <button>PREVIOUS</button>
+                            <button>SUBMIT</button>
+                        </div>
+                        
+                    </fieldset>
+                
+                </div>
+            
+            </form>
+        </div>
+    </div>
+    
+    
+    <script>
+        // change registration type
+        let toggleBtn = document.getElementById('toggleSignUp');
+
+        toggleBtn.addEventListener('click', () => {
+            let toggleValue = document.getElementById('toggleType');
+
+            if(toggleValue.textContent == 'Customer')
+            {
+                toggleValue.textContent = 'Driver';
+                document.body.style.backgroundImage = "url('../images/signUpAsDriverBg.jpg')";
+                document.getElementById('toggleTopic').textContent = 'Driver';
+            }
+            else
+            {
+                toggleValue.textContent = 'Customer';
+                document.body.style.backgroundImage = "url('../images/signUpAsClientBg.jpg')";
+                document.getElementById('toggleTopic').textContent = 'Customer';
+            }
+        })
+    </script>
+
+</body>
+</html>
