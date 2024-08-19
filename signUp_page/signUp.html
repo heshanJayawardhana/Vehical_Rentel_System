@@ -63,6 +63,10 @@
                     <div class="formBlock">
                         <input type="email" name="email" id="email" placeholder="Email address ..">
                     </div>
+                    <div class="formBlock">
+                        <label for="nicPDF">Scan of NIC <span>*pdf file</span></label>
+                        <input type="file" name="nicPDF" id="nicPDF">
+                    </div>
                     <div class="driverBlock">
                         <div class="formBlock">
                             <label for="nicPDF">Scan of NIC <span>*pdf file</span></label>
@@ -101,22 +105,24 @@
     
     <script>
         // change registration type
-        let toggleBtn = document.getElementById('toggleSignUp');
+        let toggleBtn = document.getElementById('toggleBtn');
 
         toggleBtn.addEventListener('click', () => {
-            let toggleValue = document.getElementById('toggleType');
+            let toggleValue = document.getElementById('regType');
 
             if(toggleValue.textContent == 'Customer')
             {
                 toggleValue.textContent = 'Driver';
-                document.body.style.backgroundImage = "url('../images/signUpAsDriverBg.jpg')";
-                document.getElementById('toggleTopic').textContent = 'Driver';
+                document.body.style.backgroundImage = "url('../images/signUpAsClientBg.jpg')";
+                document.getElementById('regTopic').textContent = 'Customer';
+                document.querySelector('.driverBlock').style.display = 'none';
             }
             else
             {
                 toggleValue.textContent = 'Customer';
-                document.body.style.backgroundImage = "url('../images/signUpAsClientBg.jpg')";
-                document.getElementById('toggleTopic').textContent = 'Customer';
+                document.body.style.backgroundImage = "url('../images/signUpAsDriverBg.jpg')";
+                document.getElementById('regTopic').textContent = 'Driver';
+                document.querySelector('.driverBlock').style.display = 'flex';
             }
         })
     </script>
