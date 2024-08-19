@@ -14,6 +14,8 @@
 
 body 
 {
+    min-width: 100vw;
+    min-height: 100vh;
     background-image: url('../images/signUpAsClientBg.jpg');
     background-size: cover;
     background-position: center;
@@ -23,186 +25,143 @@ body
     align-items: center;
 }
 
-
-.backgroud_Box
-{
-    display: flex;
-    justify-content: space-between;
-    /* align-items: center; */
-    min-height: calc(100vh - 30px);
-    min-width: calc(100vw - 30px);
-    padding: 15px;
-}
-
-.backgroud_Box::after
-{
+body::after {
     content: '';
     position: absolute;
+    top: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(to right, #8ec9e700 25%,#8ecae7 85%);
     z-index: -5;
-    top: 0;
-    right: 0;
 }
 
-.DOB 
-{
-    font-weight: bold;
-    opacity: 0.85;
-    font-size: 1.15em;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5px;
-}
-
-.smallBox:first-child
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
-    min-height: calc(100vh - 30px);
-}
-
-.smallBox:first-child img{
-    width: 12.5em;
-    filter: invert(1);
-    /* background-color: rgb(240, 248, 255); */
-    /* border-radius: ; */
-}
-
-.smallBox:last-child {
-    margin-right: 10vw;
-    gap: 25px;
-    align-items: start;
-    justify-content: start;
-}
-
-h3 
-{
-    font-family: "Rowdies", sans-serif;
-    font-weight: normal;
-    font-size: 1.5em;
-    margin-top: 15vh;
-}
-
-h3 span{
-    font-family: "Rowdies", sans-serif;
-}
-
-fieldset
-{
-    display: flex;
-    flex-direction: column;
+input,
+textarea {
     border: none;
-    outline: none;
-    align-items: start;
-}
-
-
-/* fieldset {
-    display: none;
-} */
-
-fieldset:nth-child(2){
-    display: flex;
-}
-
-label
-{
-    font-size: 0.85em;
-}
-
-.gender {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.gender p {
-    font-weight: bold;
-    opacity: 0.85;
-}
-
-.genBlock
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 300px;
-}
-
-.gen label {
-    font-size: 1.15em;
-    font-weight: 500;
-}
-
-input[type='text'],
-input[type='date'],
-input[type='tel'],
-input[type='email'],
-textarea,
-input[type='password']
-{
-    border: none;
-    min-width: 350px;
+    width: 350px;
     outline: none;
     font-size: 1.15em;
     padding: 3px 10px;
     background: gainsboro;
 }
 
-
 input:focus,
-textarea:focus{
-    background-color: ghostwhite;
+textarea:focus {
+    background: ghostwhite;
 }
-
 
 input::placeholder,
-textarea::placeholder
-input[type='placeholder']::placeholder
-{
+textarea::placeholder{
     color: rgb(17, 2, 62);
     font-weight: normal;
-
 }
 
-.smallBox
-{
+h3 {
+    margin-top: 100px;
+    font-weight: normal;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    font-family: "Rowdies", sans-serif;
+}
+
+h3 span {
+    font-family: "Rowdies", sans-serif;
+}
+
+.outerFrame {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.innerFrame {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
+.innerFrame:first-child {
+    justify-content: space-between;
+    min-height: 95vh;
+}
 
+.innerFrame:first-child img {
+    width: 12.5em;
+    filter: invert(1);
+}
 
-#toggleSignUp
-{
-    margin: 20px;
+.innerFrame:first-child button {
     padding: 10px 25px;
     cursor: pointer;
     font-size: 1.15em;
     border:none;
     outline: none;
     background-color: #00ffe7;
+    margin-left: 50px;
+    margin-bottom: 25px;
 }
 
-#toggleSignUp:hover
-{
-    background-color: #2a7bdf;
+.innerFrame:last-child {
+    gap: 25px;
+    margin-right: 200px;
 }
 
-.continueBtn {
+
+.innerFrame:last-child fieldset,
+.driverBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    outline: none;
+    border: none;
+}
+
+/* show only first fieldset */
+.innerFrame:last-child fieldset {
+    display: none;
+}
+
+
+.innerFrame:last-child fieldset:nth-child(1) {
+    display: flex;
+}
+
+.driverBlock {
+    display: none;
+}
+
+.formBlock {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.formBlock p,
+.formBlock label {
+    font-size: 1em;
+    font-weight: bold;
+    width: fit-content;
+}
+
+.formBlock span {
+    font-size: .75em;
+}
+
+
+.formBlock img {
+    width: 20px;
+}
+
+.formBtn {
     display: flex;
     justify-content: end;
     gap: 15px;
-    width: 370px;
+    width: 350px;
+    margin-top: 15px;
 }
 
-.continueBtn button {
+.formBtn button {
     padding: 3.5px 15px;
     font-size: 1em;
     letter-spacing: 2px;
@@ -210,40 +169,21 @@ input[type='placeholder']::placeholder
     border-radius: 5px;
     border: none;
     outline: none;
+    text-transform: uppercase;
 }
 
-.PDF
-{
+.gender {
     display: flex;
-    flex-direction: column;
-    font-weight: bold;
-    opacity: 0.85;
-    font-size: 1.15em;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5px;
+    align-items: center;
+    gap: 50px;
 }
 
-.password
-{
-    display: flex;
-    flex-direction: column;
-    font-weight: bold;
-    opacity: 0.85;
-    font-size: 1.15em;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5px;
+.genderBlock input {
+    width: fit-content;
+    margin-right: 10px;
 }
 
-.cpassword
-{
-    display: flex;
-    flex-direction: column;
-    font-weight: bold;
-    opacity: 0.85;
+.genderBlock label {
+    font-weight: normal;
     font-size: 1.15em;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5px;
 }

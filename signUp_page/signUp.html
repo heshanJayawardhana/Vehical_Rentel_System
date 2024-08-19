@@ -10,102 +10,94 @@
 </head>
 <body>
 
-    <div class="backgroud_Box">
-        <div class="smallBox">
-            <!-- logo img -->
+    <div class="outerFrame">
+        <div class="innerFrame">
             <a href="">
-                <img src="../images/logo_trpnt_bg.png" alt="">
+                <img src="../images/logo_trpnt_bg.png" alt="logo-png">
             </a>
-
-            <!-- toggle btn -->
-             <button id="toggleSignUp">Sign Up as <span id="toggleType">Customer</span></button>
+            <button id="toggleBtn" >Sign Up as <span id="regType">Driver</span></button>
         </div>
-        <div class="smallBox">
-            <h3>Sign Up as <span id="toggleTopic">Customer</span></h3>
+        <div class="innerFrame">
+            <h3>Sign Up as <span id="regTopic">Customer</span></h3>
             <form action="" method="post">
-                
-                <div class="registerClolumn">
-                    <fieldset>
-                        <input type="text" name="firstName" id="firstName" placeholder="First Name"><br>
-                        <input type="text" name="lastName" id="lastName" placeholder="Last Name"><br>
-                        
-                        <div class="DOB">
-                        <label for="birthday">Date of Birthday</label>
-                        <input type="date" name="birthday" id="birthday" placeholder="Date of Birthday"><br>
-                        </div>
-
+                <fieldset>
+                    <div class="formBlock">
+                        <input type="text" name="firstName" id="firstName" placeholder="First Name ..">
+                    </div>
+                    <div class="formBlock">
+                        <input type="text" name="lastName" id="lastName" placeholder="Last Name ..">
+                    </div>
+                    <div class="formBlock">
+                        <input type="date" name="doB" id="doB">
+                    </div>
+                    <div class="formBlock">
+                        <p>Gender</p>
                         <div class="gender">
-                            <p>Gender</p>
-                            <div class="genBlock">
-                                <div class="gen">
-                                    <input type="radio" name="gender" id="male" value="male">
-                                    <label for="male">Male</label>
-                                </div>
-                                <div class="gen">
-                                    <input type="radio" name="gender" id="female" value="female">
-                                    <label for="female">Female</label>
-                                </div>
+                            <div class="genderBlock">
+                                <input type="radio" name="gender" id="male" value="male">
+                                <label for="male">Male</label>
                             </div>
-                        </div><br>
-            
-                        <input type="text" name="NIC" id="NIC" placeholder="NIC Number"><br>
-                        <input type="text" name="licenNumber" id="licenNumber" placeholder="Driving Licence Number"><br>
-                        
-                        <div class="continueBtn">
-                            <button>NEXT</button>
+                            <div class="genderBlock">
+                                <input type="radio" name="gender" id="female" value="female">
+                                <label for="female">Female</label>
+                            </div>
                         </div>
-            
-                    </fieldset>
-            
-                    <fieldset>
-            
-                        <textarea name="address" id="address" placeholder="Address ..."></textarea><br>
-                        <input type="tel" name="tel" id="tel" placeholder="Contact Number"><br>
-                        <input type="email" name="email" id="email" placeholder="Email"><br>
-                       
-                        <div class="PDF">
-                            <label for="NIC_PDF">Upload PDF of Your NIC</label>
-                            <input type="file" name="NicPdf" id="NicPdf" placeholder="PDF of NIC"><br>
+                    </div>
+                    <div class="formBlock">
+                        <input type="text" name="nicNo" id="nicNo" value="NIC number ..">
+                    </div>
+                    <div class="formBlock">
+                        <input type="text" name="licenceNo" id="licenceNo" value="Drvier's Licence number ..">
+                    </div>
+                    <div class="formBtn">
+                        <button>next</button>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="formBlock">
+                        <textarea name="address" id="address" placeholder="Address .."></textarea>
+                    </div>
+                    <div class="formBlock">
+                        <input type="tel" name="mobile" id="mobile" placeholder="Mobile number ..">
+                    </div>
+                    <div class="formBlock">
+                        <input type="email" name="email" id="email" placeholder="Email address ..">
+                    </div>
+                    <div class="driverBlock">
+                        <div class="formBlock">
+                            <label for="nicPDF">Scan of NIC <span>*pdf file</span></label>
+                            <input type="file" name="nicPDF" id="nicPDF">
                         </div>
-
-                        <div class="PDF">
-                            <label for="LicenPDF">Upload PDF of Your Driving Licen</label>
-                            <input type="file" name="licenPDF" id="licenPDF" placeholder="PDF of Driving Licen"><br>
+                        <div class="formBlock">
+                            <label for="nicPDF">Scan of Driver's Licence <span>*pdf file</span></label>
+                            <input type="file" name="licencePDF" id="licencePDF">
                         </div>
-            
-                        <div class="continueBtn">
-                            <button>PREVIOUS</button>
-                            <button>NEXT</button>
+                        <div class="formBlock">
+                            <label for="nicPDF">Profile Picture <span>*jpg/png/jpeg file</span></label>
+                            <input type="file" name="profileImage" id="profileImage">
                         </div>
-                        
-                    </fieldset>
-                    
-                    <fieldset>
-                        
-                        <div class="password">
-                            <label for="password">Enter Your Password</label>
-                            <input type="password" name="password" id="password" placeholder="Enter Your Password">
-                        </div>
-
-                        <div class="cpassword">
-                            <label for="cpassword">Confirm Your Password</label>
-                            <input type="password" name="cPassword" id="cPassword" placeholder="Confirm Your Password">
-                            <div id="pwdError"></div>
-                        </div>
-                    
-                        <div class="continueBtn">
-                            <button>PREVIOUS</button>
-                            <button>SUBMIT</button>
-                        </div>
-                        
-                    </fieldset>
-                
-                </div>
-            
+                    </div>
+                    <div class="formBtn">
+                        <button>previous</button>
+                        <button>next</button>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="formBlock">
+                        <p>Create a Password</p>
+                        <input type="password" name="pwd" id="pwd" placeholder="Create password ..">
+                        <label for="pwd">
+                            <img id="" src="../images/eye-slash-solid.svg" alt="eye-slash-solid">
+                        </label>
+                    </div>
+                    <div class="formBlock">
+                        <p>Confirm your Password</p>
+                        <input type="password" name="cPwd" id="cPwd" placeholder="Confirm password ..">
+                    </div>
+                </fieldset>
             </form>
         </div>
     </div>
-    
     
     <script>
         // change registration type
