@@ -123,7 +123,7 @@ h3 span {
 }
 
 
-.innerFrame:last-child fieldset:nth-child(2) {
+.innerFrame:last-child fieldset:nth-child(1) {
     display: flex;
 }
 
@@ -161,6 +161,7 @@ h3 span {
     margin-top: 15px;
 }
 
+.formBtn p,
 .formBtn button {
     padding: 3.5px 15px;
     font-size: 1em;
@@ -170,6 +171,8 @@ h3 span {
     border: none;
     outline: none;
     text-transform: uppercase;
+    background-color: aliceblue;
+    cursor: pointer;
 }
 
 .gender {

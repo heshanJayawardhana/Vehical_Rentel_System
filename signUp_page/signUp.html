@@ -20,6 +20,8 @@
         <div class="innerFrame">
             <h3>Sign Up as <span id="regTopic">Customer</span></h3>
             <form action="" method="post">
+
+                <!-- personal details -->
                 <fieldset>
                     <div class="formBlock">
                         <input type="text" name="firstName" id="firstName" placeholder="First Name ..">
@@ -50,9 +52,11 @@
                         <input type="text" name="licenceNo" id="licenceNo" value="Drvier's Licence number ..">
                     </div>
                     <div class="formBtn">
-                        <button>next</button>
+                        <p >next</p>
                     </div>
                 </fieldset>
+
+                <!-- contact details -->
                 <fieldset>
                     <div class="formBlock">
                         <textarea name="address" id="address" placeholder="Address .."></textarea>
@@ -82,10 +86,12 @@
                         </div>
                     </div>
                     <div class="formBtn">
-                        <button>previous</button>
-                        <button>next</button>
+                        <p >previous</p>
+                        <p >next</p>
                     </div>
                 </fieldset>
+
+                <!-- password -->
                 <fieldset>
                     <div class="formBlock">
                         <p>Create a Password</p>
@@ -98,12 +104,23 @@
                         <p>Confirm your Password</p>
                         <input type="password" name="cPwd" id="cPwd" placeholder="Confirm password ..">
                     </div>
+                    <div class="formBtn">
+                        <p >previous</p>
+                        <button type="submit">submit</button>
+                    </div>
                 </fieldset>
             </form>
         </div>
     </div>
     
     <script>
+
+        // jump through field sets
+        
+
+        // fieldset[0] = > flex
+        
+
         // change registration type
         let toggleBtn = document.getElementById('toggleBtn');
 
