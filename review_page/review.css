@@ -29,6 +29,9 @@ body{
     font-family: "Rowdies", sans-serif;
     font-size: 50px;
     margin-bottom: 50px;
+    -webkit-text-stroke: 1px #ffffff;
+    font-weight: normal;
+    text-shadow: 0 2px 8px;
 }
 
 #review_frame{
@@ -53,6 +56,7 @@ body{
     font-size: 1.1em;
     font-weight: bold;
     letter-spacing: 2px;
+    margin-top: 5px;
 }
 
 .profile_name , .profile_pic{
@@ -130,3 +134,34 @@ body{
 }
 
 /* add review */
+.add {
+    position: fixed;
+    z-index: 5;
+    bottom: 25px;
+    right: 25px;
+    width: fit-content;
+    padding: 0px 25px;
+    background-color: yellow;
+    color: purple;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    transition: 0.35s ease-in-out all;
+    cursor: pointer;
+}
+
+.add:hover {
+    box-shadow: 0 3px 10px gray;
+}
+
+.add .icon {
+    width: 25px;
+}
+
+.add .icon svg {
+    width: 100%;
+    color: purple;
+    stroke-width: 2px;
+}
