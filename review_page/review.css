@@ -4,14 +4,33 @@
     font-family: "Rowdies", sans-serif;
     font-family: "DM Sans", sans-serif;
 */
+* {
+    position: relative;
+}
+
 
 body{ 
-    background: linear-gradient(to right, #7f7fd5 0%, #86a8e7 50%, #91eae4 100%);
     background-repeat: no-repeat;
     width: 100%;
     min-height: 100vh;
     font-family: "DM Sans", sans-serif;
     overflow-x: hidden;
+    margin: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('../images/review_page_images/robson-hatsukami-morgan-D_EV-m3aJ2U-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+    mix-blend-mode: overlay;
+    filter: blur(2px) brightness(60%);
+    z-index: -2;
 }
 
 #big_box{
@@ -165,3 +184,112 @@ body{
     color: purple;
     stroke-width: 2px;
 }
+
+#model_popup{
+    font-family: "DM Sans", sans-serif;
+    position: absolute;
+    z-index: 10;
+    top: 22vh;
+    left: 28vw;
+    background: #abbaab;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: 5px 5px 15px #7f7fd5;
+    width: 42vw;
+    min-height: 56vh;
+    padding: 15px;
+    border-radius: 15px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#model_popup .name{
+    font-family: "Rowdies", sans-serif;
+    font-size: 2.5em;
+    width: 250px;
+}
+
+.profile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+}
+
+#comment{
+    width: 32vw;
+    height: 23vh;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+#comment::placeholder{
+    font-size: 15px;
+}
+
+.btn{
+    background-color: cornflowerblue;
+    border: none;
+    border-radius: 5px;
+    width: 5vw;
+    height: 4vh;
+}
+
+.btn:nth-child(2):hover{
+    background-color: aqua;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:nth-child(1):hover{
+    box-shadow: 0.3px 2px #7f7fd5;
+}
+
+/* slider  */
+
+input[type="range"] {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none; 
+    /* creating a custom design */
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    /*  slider progress trick  */
+    overflow: hidden;
+    border-radius: 16px;
+  }
+  
+  /* Track: webkit browsers */
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 15px;
+    background: gainsboro;
+    border-radius: 16px;
+  }
+  
+  /* Track: Mozilla Firefox */
+  input[type="range"]::-moz-range-track {
+    height: 15px;
+    background: gainsboro;
+    border-radius: 16px;
+  }
+  
+  /* Thumb: webkit */
+  input[type="range"]::-webkit-slider-thumb {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none; 
+    /* creating a custom design */
+    height: 15px;
+    width: 15px;
+    background-color: ghostwhite;
+    border-radius: 50%;
+    border: 2px solid gold;
+    /*  slider progress trick  */
+    box-shadow: -407px 0 0 400px gold;
+  }
+
+
+  
+  

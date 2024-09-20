@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Rowdies:wght@300;400;700&display=swap');
+
+/*
+    font-family: "Rowdies", sans-serif;
+    font-family: "DM Sans", sans-serif;
+*/
+
+*{
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    color: initial;
+    text-decoration: none;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: "DM Sans", sans-serif;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    background: url(../images/Login_page_images/arvid-skywalker-ZvVNJOnV3ho-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: rotateY(180deg);
+}
+
+/*bachground shadow*/
+body::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgb(142, 202, 231, 85%) 15%,rgba(255,255,255,0) 50%);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    left: 50px;
+    width: fit-content;
+    gap: 25px;
+}
+
+.frame form{
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.framBlock h2{
+    font-family: "Rowdies", sans-serif;
+}
+
+.formBlock form .inputBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 7.5px;
+}
+
+.formBlock .errorMsg p{
+    font-size: .75em;
+    color: tomato;
+}
+
+.formBlock form input {
+    outline: none;
+    border: none;
+    padding: 5px 30px 5px 10px;
+    font-size: 1.15em;
+    border-radius: 5px;
+    background-color: azure;
+    width: 20em;
+    transition: .35s ease-in-out all;
+}
+
+.formBlock form input:focus {
+    background-color: ghostwhite;
+    box-shadow: 0 3px 5px rgb(100, 100, 100);
+}
+
+.formBlock form label {
+    font-size: .9em;
+    color: #3b3b3b;
+    font-weight: 700;
+}
+
+.formBlock form p,
+.formBlock form a {
+    font-size: 1em;
+    color: #3b3b3b;
+}
+
+.formBlock form a {
+    text-decoration: underline;
+    transition: all .35s ease-in-out;
+}
+
+.formBlock form p a {
+    font-size: .85em;
+}
+
+.formBlock form a:hover {
+    color: black;
+}
+
+.formBlock form img {
+    width: 1.25em;
+    cursor: pointer;
+    transition: all .35s ease-in-out;
+}
+
+.formBlock form .eyeBtn {
+    position: absolute;
+    top: 27px;
+    right: 5px;
+    padding: 6px;
+    border-left: 2px solid rgb(145, 145, 145);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formBlock form button {
+    width: max-content;
+    padding: 10px 30px;
+    outline: none;
+    border-radius: 7.5px;
+    border: none;
+    background-color: brown;
+    color: beige;
+    font-size: 1em;
+    left: 65%;
+    transition: all .35s ease-in-out;
+    cursor: pointer;
+}
+
+.formBlock form button:hover {
+    background-color: rgb(0, 194, 65);
+    text-transform: uppercase;
+    box-shadow: 0 3px 5px rgb(50, 50, 50);
+}
+
+/* login with other options */
+
+.formBlock .otherOpt {
+    color: rgb(145, 145, 145);
+    margin-bottom: 15px;
+}
+
+.formBlock .otherOpt .block {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.formBlock .otherOpt .block:last-child {
+    margin-top: 25px;
+    justify-content: space-evenly;
+    width: 75%;
+    left: 12.5%;
+}
+
+.formBlock .otherOpt img {
+    transition: all .35s ease-in-out;
+    width: 3.5em;
+}
+
+
+.formBlock .otherOpt img:hover {
+    filter: drop-shadow(0px 3px 5px rgb(100, 100, 100));
+}
+
+.formBlock .otherOpt hr {
+    width: 40%;
+    border: none;
+    height: 1.5px;
+    background-color: rgb(165, 165, 165);
+}
+
+.frame .logo {
+    width: 130px;
+}
+
+.frame .logo img {
+    width: 130%;
+    right: 15%;
+}
+
+.formBlock h2 {
+    font-size: 2.25em;
+    font-family: "Rowdies", sans-serif;
+    font-weight: normal;
+}
+
+.formBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 7.5px;
+}

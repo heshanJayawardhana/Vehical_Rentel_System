@@ -12,11 +12,47 @@
         <div class="topic">Reviews</div>
         <div id="review_frame"></div>
     </div>
-    <div class="add">Add your comment... 
+    <div id="add" class="add">Add your comment... 
         <div class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d=  "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
         </div>
     </div>
+
+    
+    
+    <div id="model_popup">
+
+        <form action="">
+            
+            <div class="profile">
+                <div class="profile_pic">
+                    <img src="../images/review_page_images/istockphoto-694184490-612x612.jpg" alt="profile_picture">
+                </div>
+
+                <div class="name">
+                    <p>mainhgytf vybknhg</p>
+                </div>
+            </div>
+        
+            <textarea name="comment" id="comment" placeholder="Enter your comment..."></textarea>
+
+            <div class="slidecontainer">
+                <input type="range" min="1" max="5" value="3" class="slider" id="Range">
+                <p><span id="pointer"></span> Stars Rating</p>
+            </div>
+
+            <div>
+
+                <button class="btn">Cancel</button>
+                <button class="btn">Submit</button>
+
+            </div>
+        
+        </form>
+
+    </div>
+
+
     <script>
         let reviews = [
             {name: 'Alice Johnson', img: '../images/review_page_images/istockphoto-1138008134-612x612.jpg', review: 'Fantastic service and a great experience. Highly recommended!', rate: 5},
@@ -74,6 +110,33 @@
         }
 
         showReview(reviews);
+
+
+        let addComment = document.getElementById("add");
+        let popup = document.getElementById("model_popup");
+
+        addComment.addEventListener("click",()=>{
+            
+            if(popup.style.display != "none"){
+                
+                popup.style.display = "none";
+            }
+            else{
+                
+                popup.style.display = "flex";
+            }
+
+        });
+
+        var slider = document.getElementById("Range");
+            var output = document.getElementById("pointer");
+            output.innerHTML = slider.value;
+
+            slider.oninput = function() {
+            output.innerHTML = this.value;
+            }
+
     </script>
+
 </body>
 </html>
