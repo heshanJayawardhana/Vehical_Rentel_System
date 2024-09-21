@@ -1,213 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up | Wander Wheel Rentals</title>
-
     <link rel="shortcut icon" href="../Images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles/signUpStyles.css">
 </head>
 <body>
 
-    <div class="outerFrame">
-        <div class="innerFrame">
-            <a href="">
-                <img src="../images/logo_trpnt_bg.png" alt="logo-png">
-            </a>
-            <button id="toggleBtn" >Sign Up as <span id="regType">Driver</span></button>
-        </div>
-        <div class="innerFrame">
-            <h3>Sign Up as <span id="regTopic">Customer</span></h3>
-            <form action="" method="post">
-
-                <!-- personal details -->
-                <fieldset>
-                    <div class="formBlock">
-                        <input type="text" name="firstName" id="firstName" placeholder="First Name .."required>
-                    </div>
-                    <div class="formBlock">
-                        <input type="text" name="lastName" id="lastName" placeholder="Last Name .."required>
-                    </div>
-                    <div class="formBlock">
-                        <input type="date" name="doB" id="doB"required>
-                    </div>
-                    <div class="formBlock">
-                        <p>Gender</p>
-                        <div class="gender">
-                            <div class="genderBlock">
-                                <input type="radio" name="gender" id="male" value="male"required>
-                                <label for="male">Male</label>
-                            </div>
-                            <div class="genderBlock">
-                                <input type="radio" name="gender" id="female" value="female"required>
-                                <label for="female">Female</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="formBlock">
-                        <input type="text" name="nicNo" id="nicNo" value="NIC number .."required>
-                    </div>
-                    <div class="formBlock">
-                        <input type="text" name="licenceNo" id="licenceNo" value="Drvier's Licence number .."required>
-                    </div>
-                    <div class="formBtn">
-                        <p onclick="jumpToStep(1)">next</p>
-                    </div>
-                </fieldset>
-
-                <!-- contact details -->
-                <fieldset>
-                    <div class="formBlock">
-                        <textarea name="address" id="address" placeholder="Address .."required></textarea>
-                    </div>
-                    <div class="formBlock">
-                        <input type="tel" name="mobile" id="mobile" placeholder="Mobile number .."required>
-                    </div>
-                    <div class="formBlock">
-                        <input type="email" name="email" id="email" placeholder="Email address .."required>
-                    </div>
-                    <div class="formBlock">
-                        <label for="nicPDF">Scan of NIC <span>*pdf file</span></label>
-                        <input type="file" name="nicPDF" id="nicPDF"required>
-                    </div>
-                    <div class="driverBlock">
-                        <div class="formBlock">
-                            <label for="nicPDF">Scan of Driver's Licence <span>*pdf file</span></label>
-                            <input type="file" name="licencePDF" id="licencePDF"required>
-                        </div>
-                        <div class="formBlock">
-                            <label for="nicPDF">Profile Picture <span>*jpg/png/jpeg file</span></label>
-                            <input type="file" name="profileImage" id="profileImage"required>
-                        </div>
-                    </div>
-                    <div class="formBtn">
-                        <p onclick="jumpToStep(0)">previous</p>
-                        <p onclick="jumpToStep(2)">next</p>
-                    </div>
-                </fieldset>
-
-                <!-- password -->
-                <fieldset>
-                    <div class="formBlock">
-                        <p>Create a Password</p>
-                        <input type="password" name="pwd" id="pwd" placeholder="Create password .."required>
-                        <label for="pwd">
-                            <img id="isVisible" src="../images/eye-slash-solid.svg" alt="eye-slash-solid">
-                        </label>
-                    </div>
-                    <div class="formBlock">
-                        <p>Confirm your Password</p>
-                        <input type="password" name="cPwd" id="cPwd" placeholder="Confirm password .."required>
-                    </div>
-                    <div class="errorBlock formBlock" id="pwdError"></div>
-                    <div class="formBlock cPwdBlock" id="cPwdBox"></div>
-                    <div class="formBtn">
-                        <p onclick="jumpToStep(1)">previous</p>
-                        <button id="submitBtn" type="submit">submit</button>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
+<div class="outerFrame">
+    <div class="innerFrame">
+        <a href="">
+            <img src="../images/logo_trpnt_bg.png" alt="logo-png">
+        </a>
+        <button id="toggleBtn">Sign Up as <span id="regType">Driver</span></button>
     </div>
+    <div class="innerFrame">
+        <h3>Sign Up as <span id="regTopic">Customer</span></h3>
+        <form action="./signUpAction.php" method="post" enctype="multipart/form-data">
+
+            <!-- personal details -->
+            <fieldset>
+                <input type="hidden" id="reg_type" name="reg_type" value="customers">
+                <div class="formBlock">
+                    <input type="text" name="firstName" id="firstName" placeholder="First Name..." required>
+                </div>
+                <div class="formBlock">
+                    <input type="text" name="lastName" id="lastName" placeholder="Last Name..." required>
+                </div>
+                <div class="formBlock">
+                    <input type="date" name="doB" id="doB" required>
+                </div>
+                <div class="formBlock">
+                    <p>Gender</p>
+                    <div class="gender">
+                        <div class="genderBlock">
+                            <input type="radio" name="gender" id="male" value="male" required>
+                            <label for="male">Male</label>
+                        </div>
+                        <div class="genderBlock">
+                            <input type="radio" name="gender" id="female" value="female" required>
+                            <label for="female">Female</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="formBlock">
+                    <input type="text" name="nicNo" id="nicNo" placeholder="NIC number..." required>
+                </div>
+                <div class="formBlock">
+                    <input type="text" name="licenceNo" id="licenceNo" placeholder="Driver's Licence number..." required>
+                </div>
+                <div class="formBtn">
+                    <button type="button" onclick="jumpToStep(1)">Next</button>
+                </div>
+            </fieldset>
+
+            <!-- contact details -->
+            <fieldset>
+                <div class="formBlock">
+                    <textarea name="address" id="address" placeholder="Address..." required></textarea>
+                </div>
+                <div class="formBlock">
+                    <input type="tel" name="mobile" id="mobile" placeholder="Mobile number..." required>
+                </div>
+                <div class="formBlock">
+                    <input type="email" name="email" id="email" placeholder="Email address..." required>
+                </div>
+                <div class="formBlock">
+                    <label for="nicPDF">Scan of NIC <span>*pdf file</span></label>
+                    <input type="file" name="nicPDF" id="nicPDF" required>
+                </div>
+                <div class="driverBlock">
+                    <div class="formBlock">
+                        <label for="licencePDF">Scan of Driver's Licence <span>*pdf file</span></label>
+                        <input type="file" name="licencePDF" id="licencePDF" required>
+                    </div>
+                    <div class="formBlock">
+                        <label for="profileImage">Profile Picture <span>*jpg/png/jpeg file</span></label>
+                        <input type="file" name="profileImage" id="profileImage" required>
+                    </div>
+                </div>
+                <div class="formBtn">
+                    <button type="button" onclick="jumpToStep(0)">Previous</button>
+                    <button type="button" onclick="jumpToStep(2)">Next</button>
+                </div>
+            </fieldset>
+
+            <!-- password -->
+            <fieldset>
+                <div class="formBlock">
+                    <p>Create a Password</p>
+                    <input type="password" name="pwd" id="pwd" placeholder="Create password..." required>
+                    <label for="pwd">
+                        <img id="isVisible" src="../images/eye-slash-solid.svg" alt="eye-slash-solid">
+                    </label>
+                </div>
+                <div class="formBlock">
+                    <p>Confirm your Password</p>
+                    <input type="password" name="cPwd" id="cPwd" placeholder="Confirm password..." required>
+                </div>
+                <div class="errorBlock formBlock" id="pwdError"></div>
+                <div class="formBlock cPwdBlock" id="cPwdBox"></div>
+                <div class="formBtn">
+                    <button type="button" onclick="jumpToStep(1)">Previous</button>
+                    <button id="submitBtn" type="submit">Submit</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<script>
+// Confirm password
+let cPwd = document.getElementById('cPwd');
+let submitBtn = document.getElementById('submitBtn');
+
+cPwd.addEventListener('input', () => {
+    let pwdText = document.getElementById('pwd').value;
+    let warnBox = document.getElementById('cPwdBox');
+
+    warnBox.innerHTML = '';
     
-    <script>
+    if (pwdText === cPwd.value) {
+        submitBtn.disabled = false;
+    } else {
+        submitBtn.disabled = true;
+        warnBox.innerHTML = `<p>Passwords do not match.</p>`;
+    }
+});
 
-        //confirm password
-        let cPwd = document.getElementById('cPwd');
+// Instructions to password
+let pwdIO = document.getElementById('pwd');
+pwdIO.addEventListener('input', () => {
+    let errorBlock = document.getElementById('pwdError');
+    let pwdWarn = [];
+    let pwdText = pwdIO.value;
 
-        cPwd.addEventListener('input', () => {
-            let pwdText = document.getElementById('pwd').value;
-            let warnBox = document.getElementById('cPwdBox');
+    errorBlock.innerHTML = '';
 
-            //clear the div
-            warnBox.innerHTML = '';
+    if (!/[A-Z]/.test(pwdText)) {
+        pwdWarn.push(`<p>Password must contain at least one CAPITAL letter.</p>`);
+    }
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(pwdText)) {
+        pwdWarn.push(`<p>Password must contain at least one Special Character.</p>`);
+    }
+    if (!/[0-9]/.test(pwdText)) {
+        pwdWarn.push(`<p>Password must contain at least one Numeric Character (0-9).</p>`);
+    }
+    if (pwdText.length < 8) {
+        pwdWarn.push(`<p>Password must be at least 8 characters long.</p>`);
+    }
 
-            //pwdText == cPwd.value ? null : warnBox.innerHTML = `<p>Passwords do not match.</p>
-            if(pwdText == cPwd.value){
-                submitBtn.disabled = false;
-            }
-            else{
-                submitBtn.disabled = true;
-                warnBox.innerHTML = `<p>Passwords do not match.</p>`;
-            }
-        })
+    errorBlock.innerHTML = pwdWarn.join('');
+});
 
-        //instructions to password
-        let pwdIO = document.getElementById('pwd');
+// Password visibility
+let eyeBtn = document.getElementById('isVisible');
+eyeBtn.addEventListener('click', () => {
+    let obText = document.getElementById('pwd');
+    if (obText.type === 'password') {
+        obText.type = 'text';
+        eyeBtn.src = '../images/eye-solid.svg';
+    } else {
+        obText.type = 'password';
+        eyeBtn.src = '../images/eye-slash-solid.svg';
+    }
+});
 
-        pwdIO.addEventListener('input', () => {
-            let errorBlock = document.getElementById('pwdError');
-            let pwdWarn = [];
-            let pwdText = pwdIO.value;
+// Jump through fieldsets
+let fieldSets = document.querySelectorAll('form fieldset');
 
-            //Clear the div
-            errorBlock.innerHTML = '';
+function jumpToStep(index) {
+    fieldSets.forEach((fieldset, i) => {
+        fieldset.style.display = i === index ? 'flex' : 'none';
+    });
+}
 
-            //Conditions(!-not gate, /-strat & end of the regex, []-define character class, Ternary operators( ?-if, :-else ))
-            !/[A-Z]/.test(pwdText) ? pwdWarn.push(`<p>Password must contan at least one CAPITAL letter.</p>`) : null ;
-            !/[! @ # $ % ^ & * () , ? " : {} | <>]/.test(pwdText) ? pwdWarn.push(`<p>Password must contain at least one Special Character (!@#$%^&*(),.?":{}|><).</p>`) : null;
-            !/[0-9]/.test(pwdText) ? pwdWarn.push(`<p>Password mustcontain atleast one Numeric Character (0-9).</p>`) : null;
-            pwdText.length >= 8 ? null : pwdWarn.push(`<p>Password must be at least 8 characters long.</p>`);
+// Initialize to show the first fieldset
+jumpToStep(0);
 
-            errorBlock.innerHTML = pwdWarn.join('');
-        })
+// Change registration type
+let toggleBtn = document.getElementById('toggleBtn');
 
-        //Psaaword visibility
-        let eyeBtn = document.getElementById('isVisible');
+toggleBtn.addEventListener('click', () => {
+    let toggleValue = document.getElementById('regType');
+    let hiddenInput = document.getElementById('reg_type');
 
-        isVisible.addEventListener('click', () =>{
-            let obText = document.getElementById('pwd')
-            
-            if(obText.type == 'password'){
-                obText.type = 'text';
-                eyeBtn.src = '../images/eye-solid.svg';
-            }
-            else{
-                obText.type = 'password';
-                eyeBtn.src = '../images/eye-slash-solid.svg';
-            }
-        })
-
-
-        // jump through field sets
-        let fieldSets = document.querySelectorAll('form fieldset');  //Array
-
-        // fieldset[0] = > flex
-        function jumpToStep (index)
-        {
-            //Hide all fieldSet (filtering)
-            for(let i = 0; i < fieldSets.length; i++)
-            {
-                fieldSets[i].style.display = 'none';
-            }
-
-            //Show nesassary fieldset
-            fieldSets[index].style.display = 'flex';
-        }
-
-        // change registration type(Customer or Driver)
-        let toggleBtn = document.getElementById('toggleBtn');
-
-        toggleBtn.addEventListener('click', () => {
-            let toggleValue = document.getElementById('regType');
-
-            if(toggleValue.textContent == 'Customer')  //show Customer's registration form
-            {
-                toggleValue.textContent = 'Driver';
-                document.body.style.backgroundImage = "url('../images/signUpAsClientBg.jpg')";
-                document.getElementById('regTopic').textContent = 'Customer';
-                document.querySelector('.driverBlock').style.display = 'none';
-            }
-            else  //show Driver's registration form
-            {
-                toggleValue.textContent = 'Customer';
-                document.body.style.backgroundImage = "url('../images/signUpAsDriverBg.jpg')";
-                document.getElementById('regTopic').textContent = 'Driver';
-                document.querySelector('.driverBlock').style.display = 'flex';
-            }
-        })
-    </script>
+    if (toggleValue.textContent === 'Customer') {
+        toggleValue.textContent = 'Driver';
+        document.body.style.backgroundImage = "url('../images/signUpAsClientBg.jpg')";
+        document.getElementById('regTopic').textContent = 'Customer';
+        document.querySelector('.driverBlock').style.display = 'none';
+        hiddenInput.value = 'customers';
+    } else {
+        toggleValue.textContent = 'Customer';
+        document.body.style.backgroundImage = "url('../images/signUpAsDriverBg.jpg')";
+        document.getElementById('regTopic').textContent = 'Driver';
+        document.querySelector('.driverBlock').style.display = 'flex';
+        hiddenInput.value = 'drivers';
+    }
+});
+</script>
 
 </body>
 </html>

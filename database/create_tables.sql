@@ -3,7 +3,7 @@
 USE vehiclerentalsystem;
 
 CREATE TABLE Customers (
-    customer_id VARCHAR(5) PRIMARY KEY, -- CSXXX
+    user_id VARCHAR(5) PRIMARY KEY, -- CSXXX
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     date_of_birth DATE NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE Customers (
 
 
 CREATE TABLE Drivers (
-    driver_id VARCHAR(5) PRIMARY KEY, -- DRXXX
+    user_id VARCHAR(5) PRIMARY KEY, -- DRXXX
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     date_of_birth DATE NOT NULL,
