@@ -2,6 +2,7 @@
 
 USE vehiclerentalsystem;
 
+-- create customers table
 CREATE TABLE Customers (
     user_id VARCHAR(5) PRIMARY KEY, -- CSXXX
     first_name VARCHAR(50) NOT NULL,
@@ -19,7 +20,7 @@ CREATE TABLE Customers (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-
+-- create drivers table
 CREATE TABLE Drivers (
     user_id VARCHAR(5) PRIMARY KEY, -- DRXXX
     first_name VARCHAR(50) NOT NULL,
@@ -36,4 +37,15 @@ CREATE TABLE Drivers (
     profile_image VARCHAR(255) NOT NULL, -- File path or name for profile picture
     password VARCHAR(255) NOT NULL, -- For storing hashed password
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- create reviews table
+CREATE TABLE reviews (
+    id VARCHAR(5) PRIMARY KEY, -- RVXXX
+    customer_id VARCHAR(5) NOT NULL, -- from 'Customers' table 'user_id' column
+    review TEXT NOT NULL,
+    rate INT CHECK (rate <= 5), -- Ensure rate is <= 5
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Automatically set to current timestamp
+    
+    FOREIGN KEY (customer_id) REFERENCES Customers(user_id) -- Define foreign key constraint
 );

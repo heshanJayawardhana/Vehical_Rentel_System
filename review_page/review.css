@@ -155,7 +155,7 @@ body::after {
 /* add review */
 .add {
     position: fixed;
-    z-index: 5;
+    z-index: 15;
     bottom: 25px;
     right: 25px;
     width: fit-content;
@@ -172,7 +172,7 @@ body::after {
 }
 
 .add:hover {
-    box-shadow: 0 3px 10px gray;
+    box-shadow: 0 3px 10px rgb(59, 59, 59);
 }
 
 .add .icon {
@@ -187,22 +187,45 @@ body::after {
 
 #model_popup{
     font-family: "DM Sans", sans-serif;
-    position: absolute;
+    position: fixed;
     z-index: 10;
     top: 22vh;
     left: 28vw;
-    background: #abbaab;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    box-shadow: 5px 5px 15px #7f7fd5;
+    /* background: #abbaab;  fallback for old browsers
+    background: -webkit-linear-gradient(to bottom, #ffffff, #abbaab);   Chrome 10-25, Safari 5.1-6 
+    background: linear-gradient(to bottom, #ffffff, #abbaab); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
+    box-shadow: 5px 5px 15px #7f7fd5; */
     width: 42vw;
     min-height: 56vh;
     padding: 15px;
     border-radius: 15px;
-    display: none;
     align-items: center;
     justify-content: center;
     
+}
+
+#model_popup::before {
+    background: #abbaab;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: 5px 5px 15px #7f7fd5;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    z-index: -5;
+}
+
+#model_popup::after {
+    content: '';
+    position: absolute;
+    z-index: -10;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(3px) brightness(0.5);
+    top: -22vh;
+    left: -28vw;
 }
 
 #model_popup .name{
@@ -221,8 +244,10 @@ body::after {
 #comment{
     width: 32vw;
     height: 23vh;
-    margin-top: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     border-radius: 10px;
+    padding: 10px 15px;
 }
 
 #comment::placeholder{
@@ -290,6 +315,18 @@ input[type="range"] {
     box-shadow: -407px 0 0 400px gold;
   }
 
+  .rate-bar{
+    display: flex;
+    gap: 7px; 
+    align-items: center;
+    margin-bottom: 5px;
+  }
 
+  .rate-bar .star{
+    width: 22px;
+    color: #636363;
+  }
   
-  
+  .rate-bar .star svg{
+    width: 100%;
+  }

@@ -19,9 +19,22 @@
 
             <h2>Login</h2>
 
-            <div class="errorMsg"></div>
+            <div class="errorMsg">
+                <?php
+                    session_start();
 
-            <form action="">
+                    // Check if there's an error message in the session
+                    if (isset($_SESSION['error_message'])) {
+                        echo '<p>' . $_SESSION['error_message'] . '</p>';
+                        // Unset the error message after displaying it
+                        unset($_SESSION['error_message']);
+                    }
+                    
+                    session_destroy();
+                ?>
+            </div>
+
+            <form action="./loginAction.php" method="post">
                 <p>Don't have an account? <a href="../signUp_page/signUp.html">Create now</a></p>
 
             <div class="inputBlock">
