@@ -25,10 +25,27 @@
         <?php 
             session_start();
 
-            if () { } else { }
+            if (isset($_SESSION['type'], $_SESSION['user_id'])) { 
+
+                $sql = 'SELECT * FROM ' . $_SESSION['type'] . 'WHERE user_id = ' $_SESSION['user_id'] ;
+                $details = $conn -> query($sql);
+
+                if ( ! ($details -> num_rows > 0) ) {
+                    echo "Internal Error !!";
+                } else {
+                    $data = $details -> fetch_assoc();
+                }
+
+            } else {
+                // Set error message in session
+                session_start();
+                $_SESSION['error_message'] = 'You are not worthy! (Login First)';
+                header('Location: ./login.php'); // Redirect to your login page
+                exit();
+            }
         ?>
 
-        <form action="" method="post">
+        <form action="./reviewAction.php" method="post">
             
             <div class="profile">
                 <div class="profile_pic">
@@ -36,7 +53,7 @@
                 </div>
 
                 <div class="name">
-                    <p>mainhgytf vybknhg</p>
+                    <p><?php echo $driver_data['first_name'].' '.$driver_data['last_name'] ?></p>
                 </div>
             </div>
         
@@ -45,6 +62,7 @@
             <div class="rate-bar" id="starBar">     
             </div>
             <input type="hidden" id="rate_amount" name="rate_amount" value="0">
+            <input type="hidden" name="user" value='<?php echo $driver_data['user_id'] ?>'>
 
             <div>
 
