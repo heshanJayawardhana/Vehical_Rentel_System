@@ -22,56 +22,59 @@
     
     <div id="model_popup" style="display: none">
 
-        <?php 
-            session_start();
+<?php 
+session_start();
 
-            if (isset($_SESSION['type'], $_SESSION['user_id'])) { 
+// Check if session variables are set
+if (isset($_SESSION['type'], $_SESSION['user_id'])) { 
 
-                $sql = 'SELECT * FROM ' . $_SESSION['type'] . 'WHERE user_id = ' $_SESSION['user_id'] ;
-                $details = $conn -> query($sql);
+    // Prepare the SQL statement
+    $stmt = $conn->prepare('SELECT * FROM ' . $_SESSION['type'] . ' WHERE user_id = ?');
+    $stmt->bind_param('i', $_SESSION['user_id']);
+    $stmt->execute();
+    $details = $stmt->get_result();
 
-                if ( ! ($details -> num_rows > 0) ) {
-                    echo "Internal Error !!";
-                } else {
-                    $data = $details -> fetch_assoc();
-                }
-
-            } else {
-                // Set error message in session
-                session_start();
-                $_SESSION['error_message'] = 'You are not worthy! (Login First)';
-                header('Location: ./login.php'); // Redirect to your login page
-                exit();
-            }
-        ?>
-
+    // Check if there are results
+    if ($details->num_rows <= 0) {
+        echo "Internal Error !! No details found.";
+    } else {
+        $data = $details->fetch_assoc();
+        
+        // Output the HTML directly
+        echo '
         <form action="./reviewAction.php" method="post">
-            
             <div class="profile">
                 <div class="profile_pic">
-                    <img src="../images/review_page_images/istockphoto-694184490-612x612.jpg" alt="profile_picture">
+                    <img src="'.$data['profile_image'].'" alt="profile_picture">
                 </div>
-
                 <div class="name">
-                    <p><?php echo $driver_data['first_name'].' '.$driver_data['last_name'] ?></p>
+                    <p>' . $data['first_name'] . ' ' . $data['last_name'] . '</p>
                 </div>
             </div>
-        
             <textarea name="comment" id="comment" placeholder="Enter your comment..."></textarea>
-
-            <div class="rate-bar" id="starBar">     
-            </div>
+            <div class="rate-bar" id="starBar"></div>
             <input type="hidden" id="rate_amount" name="rate_amount" value="0">
-            <input type="hidden" name="user" value='<?php echo $driver_data['user_id'] ?>'>
-
+            <input type="hidden" name="user" value="' . $data['user_id'] . '">
             <div>
-
                 <button id="resetBtn" type="reset" class="btn">Cancel</button>
                 <button type="submit" class="btn">Submit</button>
-
             </div>
-        
         </form>
+        ';
+    }
+
+    $stmt->close();
+} else {
+
+    echo '
+    <div class="alert-box">
+        <h2>You Should Sign In First!</h2>
+        <a href="../login_page/login.php">Sign In</a>
+    </div>
+    ';
+}
+?>
+        
 
     </div>
 

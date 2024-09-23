@@ -330,3 +330,24 @@ input[type="range"] {
   .rate-bar .star svg{
     width: 100%;
   }
+
+  .alert-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .alert-box a {
+    text-decoration: none;
+    padding: 10px 30px;
+    border-radius: 10px;
+    background-color: cornflowerblue;
+    color: ghostwhite;
+    transition: all ease-in-out .35s;
+  }
+  
+  .alert-box a:hover {
+    box-shadow: 0 3px 5px gray;
+  }
