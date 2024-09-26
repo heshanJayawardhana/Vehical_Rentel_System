@@ -93,6 +93,29 @@ CREATE TABLE reviews (
     FOREIGN KEY (customer_id) REFERENCES Customers(user_id) -- Define foreign key constraint
 );
 
+--Create staff table
+CREATE TABLE Staff(
+    StaffID INT PRIMARY KEY,
+    NIC VARCHAR(10),
+    Bonus FLOAT,
+    FirstName VARCHAR(15),
+    LastName VARCHAR(15),
+    Age INT,
+    Address VARCHAR(50),
+    Salary FLOAT,
+    DOB DATE
+);
+
+-- Inserting data into the Staff table
+INSERT INTO Staff (StaffID, NIC, Bonus, FirstName, LastName, Age, Address, Salary, DOB)
+VALUES
+(1, '993456789V', 1500.50, 'John', 'Doe', 30, '123 Maple Street', 55000.00, '1994-08-15'),
+(2, '985123456V', 1200.75, 'Alice', 'Smith', 27, '456 Oak Avenue', 52000.00, '1996-03-20'),
+(3, '973214567V', 1750.00, 'Bob', 'Johnson', 40, '789 Pine Road', 60000.00, '1983-11-05'),
+(4, '963987654V', 1600.25, 'Eve', 'Williams', 35, '321 Birch Lane', 58000.00, '1988-06-25'),
+(5, '943456321V', 1450.00, 'Charlie', 'Brown', 28, '987 Cedar Blvd', 53000.00, '1995-01-10');
+
+
 ```
 
 ## Step 6: Exit
