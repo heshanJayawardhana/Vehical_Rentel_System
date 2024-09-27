@@ -115,6 +115,15 @@ VALUES
 (4, '963987654V', 1600.25, 'Eve', 'Williams', 35, '321 Birch Lane', 58000.00, '1988-06-25'),
 (5, '943456321V', 1450.00, 'Charlie', 'Brown', 28, '987 Cedar Blvd', 53000.00, '1995-01-10');
 
+--Create contact_form table
+CREATE TABLE contact_form (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(15) NOT NULL,
+    subject VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL
+);
 
 ```
 
