@@ -53,13 +53,17 @@ body::after {
     text-shadow: 0 2px 8px;
 }
 
-#review_frame{
+.review_block{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     position: relative;
     width: 50%;
     gap: 15px;
+}
+
+.review_block:nth-child(2) {
+    margin-bottom: 15px;
 }
 
 .profile_box{
@@ -351,3 +355,114 @@ input[type="range"] {
   .alert-box a:hover {
     box-shadow: 0 3px 5px gray;
   }
+
+  .side-options {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .side-options .icon {
+    padding: 10px 0px 20px 0px;
+    color: rgb(100, 100, 100);
+    cursor: pointer;
+    transition: all ease-in-out .35s;
+  }
+
+  .option-box {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right:  -60px;
+    z-index: 15;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgba(220, 220, 220, 0.25);
+    box-shadow: -2px 3px 5px rgb(50, 50, 50);
+    backdrop-filter: blur(3px) brightness(.75);
+    transition: all ease-in-out .35s;
+    transform-origin: left top;
+    transform: scale(0);
+  }
+  
+  .side-options .option-box .vector svg {
+      width: 25px;
+      height: 25px;
+    }
+    
+    .side-options .icon:hover {
+        color: black;
+    }
+    
+    .side-options .option-box .vector {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        background-color: rgba(240, 255, 255, 0.5);
+        color: rgba(128, 128, 128, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        cursor: pointer;
+        transition: all ease-in-out .35s;
+    }
+    
+    .side-options .option-box .vector:nth-child(1)::after {
+        content: 'Delete Review';
+        position: absolute;
+        padding: 5px 10px;
+        border-radius: 10px;
+        background-color: gainsboro;
+        z-index: 1;
+        width: max-content;
+        right: -105px;
+        font-size: 0.85em;
+        font-weight: 600;
+        transform: scale(0, 1);
+        transition: all ease-in-out .35s;
+        transform-origin: left; 
+    }
+
+    .side-options .option-box .vector:nth-child(2)::after {
+        content: 'Edit Review';
+        position: absolute;
+        padding: 5px 10px;
+        border-radius: 10px;
+        background-color: gainsboro;
+        z-index: 1;
+        width: max-content;
+        right: -90px;
+        font-size: 0.85em;
+        font-weight: 600;
+        transform: scale(0, 1);
+        transition: all ease-in-out .35s;
+        transform-origin: top left;
+    }
+
+    .side-options .option-box .vector:nth-child(1):hover:after {
+        transform: scale(1, 1);
+    }
+
+    .side-options .option-box .vector:nth-child(2):hover:after {
+        transform: scale(1, 1);
+    }
+    
+    .side-options .option-box .vector:nth-child(1):hover {
+        color: maroon;
+        background-color: lightsalmon;
+    }
+    
+    .side-options .option-box .vector:nth-child(2):hover {
+        color: darkgreen;
+        background-color: lightgreen;
+    }
+
+    .side-options .icon:hover + .option-box {
+        transform: scale(1);
+    }
+
+  .option-box:hover {
+    transform: scale(1);
+  }
+
