@@ -125,6 +125,17 @@ CREATE TABLE contact_form (
     message TEXT NOT NULL
 );
 
+--Create payment table
+CREATE TABLE payment (
+    payment_id INT AUTO_INCREMENT PRIMARY KEY,  
+    first_name VARCHAR(255) NOT NULL,           
+    last_name VARCHAR(255) NOT NULL,            
+    email VARCHAR(255) NOT NULL,                
+    payment_method VARCHAR(50) NOT NULL,       
+    total DECIMAL(10, 2) NOT NULL,            
+    payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Timestamp of when the payment was made
+);
+
 ```
 
 ## Step 6: Exit
