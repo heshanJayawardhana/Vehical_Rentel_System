@@ -26,7 +26,7 @@ session_start();
 // Check if session variables are set
 if (isset($_SESSION['type'], $_SESSION['user_id'])) {
     // Prepare the base SQL query
-    $feedback_sql = "SELECT c.first_name, c.last_name, c.profile_image, r.review, r.rate 
+    $feedback_sql = "SELECT c.first_name, c.last_name, c.profile_image, r.id, r.review, r.rate 
                      FROM reviews r 
                      JOIN Customers c ON r.customer_id = c.user_id
                      WHERE r.customer_id = '" . $_SESSION['user_id'] . "'";
@@ -72,10 +72,12 @@ if (isset($_SESSION['type'], $_SESSION['user_id'])) {
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
                                 </div>
                                 <div class="option-box">
-                                    <div class="vector">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="currentColor" d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0L284.2 0c12.1 0 23.2 6.8 28.6 17.7L320 32l96 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 96C14.3 96 0 81.7 0 64S14.3 32 32 32l96 0 7.2-14.3zM32 128l384 0 0 320c0 35.3-28.7 64-64 64L96 512c-35.3 0-64-28.7-64-64l0-320zm96 64c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16z"/></svg>
-                                    </div>
-                                    <div class="vector">
+                                    <a href="./deleteReview.php?id='.$user_review['id'].'">
+                                        <div class="vector">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="currentColor" d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0L284.2 0c12.1 0 23.2 6.8 28.6 17.7L320 32l96 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 96C14.3 96 0 81.7 0 64S14.3 32 32 32l96 0 7.2-14.3zM32 128l384 0 0 320c0 35.3-28.7 64-64 64L96 512c-35.3 0-64-28.7-64-64l0-320zm96 64c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16z"/></svg>
+                                        </div>
+                                    </a>
+                                    <div class="vector" onClick="updateForm(\'' . addslashes($user_review['review']) . '\', ' . $user_review['rate'] . ', \'' . $user_review['id'] . '\')">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="currentColor" d="M368.4 18.3L312.7 74.1 437.9 199.3l55.7-55.7c21.9-21.9 21.9-57.3 0-79.2L447.6 18.3c-21.9-21.9-57.3-21.9-79.2 0zM288 94.6l-9.2 2.8L134.7 140.6c-19.9 6-35.7 21.2-42.3 41L3.8 445.8c-3.8 11.3-1 23.9 7.3 32.4L164.7 324.7c-3-6.3-4.7-13.3-4.7-20.7c0-26.5 21.5-48 48-48s48 21.5 48 48s-21.5 48-48 48c-7.4 0-14.4-1.7-20.7-4.7L33.7 500.9c8.6 8.3 21.1 11.2 32.4 7.3l264.3-88.6c19.7-6.6 35-22.4 41-42.3l43.2-144.1 2.7-9.2L288 94.6z"/></svg>
                                     </div>
                                 </div>
@@ -191,6 +193,7 @@ if (isset($_SESSION['type'], $_SESSION['user_id'])) {
             <textarea name="comment" id="comment" placeholder="Enter your comment..."></textarea>
             <div class="rate-bar" id="starBar"></div>
             <input type="hidden" id="rate_amount" name="rate_amount" value="0">
+            <input type="hidden" id="feedback" name="feedback" value="RVXXX">
             <input type="hidden" name="user" value="' . $data['user_id'] . '">
             <div>
                 <button id="resetBtn" type="reset" class="btn">Cancel</button>
@@ -276,13 +279,24 @@ if (isset($_SESSION['type'], $_SESSION['user_id'])) {
 
         }
 
-
+        //================================================================================================
         // cancel button 
         document.getElementById('resetBtn').addEventListener('click', () => {
             document.getElementById('rate_amount').value = 0;
             ratings(0);
             document.getElementById('model_popup').style.display = 'none';
         });
+
+        // ================================================================================================
+        // open form with pre-loaded data AKA update reviews
+        function updateForm (review, rate, review_id) {
+
+            document.getElementById('comment').value = review;
+            document.getElementById('rate_amount').value = rate;
+            document.getElementById('feedback').value = review_id;
+            document.getElementById('model_popup').style.display = "flex";
+            ratings(rate);
+        }
 
     </script>
 

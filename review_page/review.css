@@ -113,6 +113,7 @@ body::after {
     margin: 0;
     padding: 10px 15px;
     min-height: 70px;
+    min-width: 375px;
     margin-bottom: 10px;
     border-radius: 15px;
     background: rgb(255, 228, 193);

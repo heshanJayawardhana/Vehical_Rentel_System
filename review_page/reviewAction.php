@@ -25,18 +25,32 @@ function createID($con) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+    
+    $review_id = $_POST['feedback'];
     $review = $_POST['comment'];
     $rate = $_POST['rate_amount']; 
     $customer = $_POST['user'];
+
+    if ($review_id === 'RVXXX') {
+        
+        $review_id = createID ($conn);
     
-    $review_id = createID ($conn);
+        // set sql query -> INSERT INTO ..
+        $sql = "INSERT INTO reviews (id, customer_id, review, rate, created_at) VALUES (?, ?, ?, ?, NOW())";
+    
+        $stmt = $conn -> prepare($sql);
+        $stmt -> bind_param('ssss', $review_id, $customer, $review, $rate);
+    
+    } else {
 
-    // set sql query -> INSERT INTO ..
-    $sql = "INSERT INTO reviews (id, customer_id, review, rate, created_at) VALUES (?, ?, ?, ?, NOW())";
-
-    $stmt = $conn -> prepare($sql);
-    $stmt -> bind_param('ssss', $review_id, $customer, $review, $rate);
-
+        // set sql query -> UPDATE reviews ..
+        $sql = "UPDATE reviews SET review = ?, rate = ? WHERE id = ?";
+        
+        $stmt = $conn -> prepare($sql);
+        $stmt-> bind_param('sss', $review, $rate, $review_id);
+        
+    }
+    
     if($stmt -> execute()){
 
         header("Location: ./review.php");
@@ -45,8 +59,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $stmt -> close();
+
 }
 
 // close connection
 include '../includes/closecon.php';
+
 ?>
