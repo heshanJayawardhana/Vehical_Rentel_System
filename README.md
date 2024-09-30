@@ -116,25 +116,29 @@ VALUES
 (5, '943456321V', 1450.00, 'Charlie', 'Brown', 28, '987 Cedar Blvd', 53000.00, '1995-01-10');
 
 --Create contact_form table
-CREATE TABLE contact_form (
+CREATE TABLE contact_requests (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
+    firstname VARCHAR(50) NOT NULL,
+    lastname VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
-    phone VARCHAR(15) NOT NULL,
-    subject VARCHAR(255) NOT NULL,
-    message TEXT NOT NULL
+    message TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
 --Create payment table
 CREATE TABLE payment (
-    payment_id INT AUTO_INCREMENT PRIMARY KEY,  
-    first_name VARCHAR(255) NOT NULL,           
-    last_name VARCHAR(255) NOT NULL,            
-    email VARCHAR(255) NOT NULL,                
-    payment_method VARCHAR(50) NOT NULL,       
-    total DECIMAL(10, 2) NOT NULL,            
-    payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Timestamp of when the payment was made
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(50),
+    lastname VARCHAR(50),
+    email VARCHAR(100),
+    method ENUM('card-payment', 'cash-payment'),
+    creditCardNum VARCHAR(16),
+    date VARCHAR(5),
+    cvv VARCHAR(3),
+    receipt VARCHAR(255),
+    totalPrice DECIMAL(10, 2),
+    confirmed BOOLEAN DEFAULT 0
 );
+
 
 ```
 
