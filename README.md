@@ -126,7 +126,7 @@ CREATE TABLE contact_requests (
 );
 --Create payment table
 CREATE TABLE payment (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    payment_id INT AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR(50),
     lastname VARCHAR(50),
     email VARCHAR(100),
