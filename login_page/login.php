@@ -12,7 +12,7 @@
     <div class="frame">
 
         <div class="logo">
-            <img src="../images/logo_trpnt_bg.png" alt="logo">
+            <img src="../images/logo/logo_yellow.png" alt="logo-png">
         </div>
 
         <div class="formBlock">

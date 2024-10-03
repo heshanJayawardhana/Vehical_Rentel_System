@@ -90,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_start();  //login the user
         $_SESSION['type'] = $regType;
         $_SESSION['user_id'] = $user_id;
+        $_SESSION['profile_image'] = $imgPath;
     
         // header("Location: path_to_profile_dashboard");
         echo 'Registration Succeeded :) \n ' . $_SESSION['user_id'];

@@ -23,8 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $customer_data = $fetch_from_customer->fetch_assoc();
         $_SESSION['type'] = 'customers';
         $_SESSION['user_id'] = $customer_data['user_id'];
+        $_SESSION['profile_image'] = $customer_data['profile_image'];
 
-        echo '<p>Login Succeeded!</p><h1>'.$customer_data['first_name'].' '.$customer_data['last_name'].'</h1>';
+        echo '<p>Login Succeeded!</p><h1>'.$customer_data['first_name'].' '.$customer_data['last_name'].'</h1> <p> Image Path'.$customer_data['profile_image'];
         exit();
     } else {
         // Check drivers if no customer found
@@ -40,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $driver_data = $fetch_from_driver->fetch_assoc();
             $_SESSION['type'] = 'drivers';
             $_SESSION['user_id'] = $driver_data['user_id'];
+            $_SESSION['profile_image'] = $driver_data['profile_image'];
 
             echo '<p>Login Succeeded!</p><h1>'.$driver_data['first_name'].' '.$driver_data['last_name'].'</h1>';
             exit();

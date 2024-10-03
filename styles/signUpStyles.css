@@ -88,7 +88,8 @@ h3 span {
 
 .innerFrame:first-child img {
     width: 12.5em;
-    filter: invert(1);
+    mix-blend-mode: lighten;
+    /* filter: invert(1); */
 }
 
 .innerFrame:first-child button {

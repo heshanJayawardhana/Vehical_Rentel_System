@@ -14,6 +14,11 @@ include '../includes/config.php';
     <link rel="stylesheet" href="review.css">
 </head>
 <body>
+
+    <!-- header -->
+    <?php
+        include_once '../includes/header.php'; 
+    ?>
     
     <div id="big_box">
         <div class="topic">Reviews</div>
@@ -21,7 +26,7 @@ include '../includes/config.php';
         <div class="review_block">
         <?php
 
-session_start();
+// session_start();
 
 // Check if user haslogged in
 if (isset($_SESSION['type'], $_SESSION['user_id'])) {

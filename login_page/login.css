@@ -200,6 +200,7 @@ body::after {
 .frame .logo img {
     width: 130%;
     right: 15%;
+    mix-blend-mode: exclusion;
 }
 
 .formBlock h2 {
