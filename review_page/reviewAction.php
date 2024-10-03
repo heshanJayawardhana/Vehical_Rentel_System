@@ -3,6 +3,7 @@
 // connection
 include '../includes/config.php';
 
+// generate custom id as for primary key of database
 function createID($con) {
     $getId = 'SELECT id FROM reviews ORDER BY id DESC LIMIT 1';
     $result = $con->query($getId);
@@ -22,7 +23,7 @@ function createID($con) {
 }
 
 
-
+// check for post requests
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     
@@ -31,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rate = $_POST['rate_amount']; 
     $customer = $_POST['user'];
 
+    // if id set as 'RVXXX' -> that mean create a new record
     if ($review_id === 'RVXXX') {
         
         $review_id = createID ($conn);
@@ -41,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $conn -> prepare($sql);
         $stmt -> bind_param('ssss', $review_id, $customer, $review, $rate);
     
-    } else {
+    } else { // otherwise update current record
 
         // set sql query -> UPDATE reviews ..
         $sql = "UPDATE reviews SET review = ?, rate = ? WHERE id = ?";
@@ -51,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
     }
     
-    if($stmt -> execute()){
+    if($stmt -> execute()){ // when things done the way it supposed to be
 
         header("Location: ./review.php");
 

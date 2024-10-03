@@ -118,15 +118,15 @@ let submitBtn = document.getElementById('submitBtn');
 
 cPwd.addEventListener('input', () => {
     let pwdText = document.getElementById('pwd').value;
-    let warnBox = document.getElementById('cPwdBox');
+    let warningBox = document.getElementById('cPwdBox');
 
-    warnBox.innerHTML = '';
+    warningBox.innerHTML = '';
     
     if (pwdText === cPwd.value) {
         submitBtn.disabled = false;
     } else {
         submitBtn.disabled = true;
-        warnBox.innerHTML = `<p>Passwords do not match.</p>`;
+        warningBox.innerHTML = `<p>Passwords do not match.</p>`;
     }
 });
 
@@ -134,25 +134,25 @@ cPwd.addEventListener('input', () => {
 let pwdIO = document.getElementById('pwd');
 pwdIO.addEventListener('input', () => {
     let errorBlock = document.getElementById('pwdError');
-    let pwdWarn = [];
+    let pwdWarningArray = [];
     let pwdText = pwdIO.value;
 
     errorBlock.innerHTML = '';
 
-    if (!/[A-Z]/.test(pwdText)) {
-        pwdWarn.push(`<p>Password must contain at least one CAPITAL letter.</p>`);
+    if (!/[A-Z]/.test(pwdText)) { // check whether password has any capital letters in it
+        pwdWarningArray.push(`<p>Password must contain at least one CAPITAL letter.</p>`);
     }
-    if (!/[!@#$%^&*(),.?":{}|<>]/.test(pwdText)) {
-        pwdWarn.push(`<p>Password must contain at least one Special Character.</p>`);
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(pwdText)) { // also check whether password has any special characters in it
+        pwdWarningArray.push(`<p>Password must contain at least one Special Character.</p>`);
     }
-    if (!/[0-9]/.test(pwdText)) {
-        pwdWarn.push(`<p>Password must contain at least one Numeric Character (0-9).</p>`);
+    if (!/[0-9]/.test(pwdText)) { // again check whether password has any numbers in it
+        pwdWarningArray.push(`<p>Password must contain at least one Numeric Character (0-9).</p>`);
     }
-    if (pwdText.length < 8) {
-        pwdWarn.push(`<p>Password must be at least 8 characters long.</p>`);
+    if (pwdText.length < 8) { // also check does the password is longer than 8 characters
+        pwdWarningArray.push(`<p>Password must be at least 8 characters long.</p>`);
     }
 
-    errorBlock.innerHTML = pwdWarn.join('');
+    errorBlock.innerHTML = pwdWarningArray.join('');
 });
 
 // Password visibility
@@ -168,7 +168,7 @@ eyeBtn.addEventListener('click', () => {
     }
 });
 
-// Jump through fieldsets
+// Jump through fieldsets(next & pervous buttons)
 let fieldSets = document.querySelectorAll('form fieldset');
 
 function jumpToStep(index) {
@@ -180,7 +180,7 @@ function jumpToStep(index) {
 // Initialize to show the first fieldset
 jumpToStep(0);
 
-// Change registration type
+// Change registration type customer to Driver & Driver to Customer
 let toggleBtn = document.getElementById('toggleBtn');
 
 toggleBtn.addEventListener('click', () => {

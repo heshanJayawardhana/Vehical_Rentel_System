@@ -3,6 +3,7 @@
 // connection
 include '../includes/config.php';
 
+// generate custoer id accordingly(else Driver)
 function createID ($con, $type) {
     if ($type === 'customers') {
         $text = 'CS';
@@ -24,6 +25,7 @@ function createID ($con, $type) {
     return $new_id;
 }
 
+// check for post requests
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $firstName = $_POST['firstName'];
@@ -58,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt -> bind_param('ssssssssssss', $user_id, $firstName, $lastName, $doB, $gender, $nicNo, $licenceNo, $address, $mobile, $email, $nicPath, $pwd);
 
     }
-    else
+    else //Driver part
     {
         
         // rename files
@@ -85,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($stmt -> execute()) {
-        session_start();
+        session_start();  //login the user
         $_SESSION['type'] = $regType;
         $_SESSION['user_id'] = $user_id;
     

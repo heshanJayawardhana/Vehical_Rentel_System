@@ -8,12 +8,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['userEmail'];
     $pwd = $_POST['userPassword'];
 
-    // Use prepared statements to prevent SQL injection
+    // Use prepared statements to prevent SQL injection(for Security)
     $stmt = $conn->prepare('SELECT * FROM customers WHERE email = ? AND password = ?');
     $stmt->bind_param('ss', $email, $pwd);
     $stmt->execute();
     $fetch_from_customer = $stmt->get_result();
 
+
+    //Check whether user is a customer
     if($fetch_from_customer->num_rows > 0) {
         // Start the session
         session_start();

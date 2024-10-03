@@ -23,9 +23,9 @@ include '../includes/config.php';
 
 session_start();
 
-// Check if session variables are set
+// Check if user haslogged in
 if (isset($_SESSION['type'], $_SESSION['user_id'])) {
-    // Prepare the base SQL query
+    // Prepare the base SQL query -> join
     $feedback_sql = "SELECT c.first_name, c.last_name, c.profile_image, r.id, r.review, r.rate 
                      FROM reviews r 
                      JOIN Customers c ON r.customer_id = c.user_id
@@ -35,7 +35,7 @@ if (isset($_SESSION['type'], $_SESSION['user_id'])) {
 
     if ($get_feedback && $get_feedback->num_rows > 0) {
         while ($user_review = $get_feedback->fetch_assoc()) {
-            
+                    // repeate elements till allrecords appear
                     echo '<div class="review_box">
                             <div class="profile_box">
                                 <div class="profile_pic">
@@ -110,7 +110,7 @@ if ($reviews) {
     // Fetch and format the results
     while ($feedbacks = $reviews->fetch_assoc()) {
 
-        // echo '{name: "' . $feedbacks['first_name'] . ' ' . $feedbacks['last_name'] . '", img: "' . $feedbacks['profile_image'] . '", review: "' . addslashes($feedbacks['review']) . '", rate: ' . (int)$feedbacks['rate'] . '},';
+        // repeate content till everything catch up
         echo '<div class="review_box">
                 <div class="profile_box">
                     <div class="profile_pic">
@@ -160,11 +160,12 @@ if ($reviews) {
         </div>
     </div>    
     
+    <!-- create or update model -->
     <div id="model_popup" style="display: none">
 
 <?php 
 
-// Check if session variables are set
+// Check if user is logged in
 if (isset($_SESSION['type'], $_SESSION['user_id'])) { 
 
     // Prepare the SQL statement
@@ -206,6 +207,7 @@ if (isset($_SESSION['type'], $_SESSION['user_id'])) {
     $stmt->close();
 } else {
 
+    // if user hasn't logged in yet -> FORCE HIM 
     echo '
     <div class="alert-box">
         <h2>You Should Sign In First!</h2>
@@ -225,7 +227,7 @@ if (isset($_SESSION['type'], $_SESSION['user_id'])) {
         let addComment = document.getElementById("add");
         let popup = document.getElementById("model_popup");
 
-        addComment.addEventListener("click",()=>{
+        addComment.addEventListener("click",()=>{ // functionalities to model pop up
             
             if(popup.style.display != "none"){
                 
@@ -261,7 +263,7 @@ if (isset($_SESSION['type'], $_SESSION['user_id'])) {
         rate_bar(document.getElementById('starBar'));
 
         let nowRate = 0;
-        function ratings(index){
+        function ratings(index){ // set rating details in reviews
 
             let twinkle = document.querySelectorAll('.rate-bar .star');
 
@@ -281,7 +283,7 @@ if (isset($_SESSION['type'], $_SESSION['user_id'])) {
 
         //================================================================================================
         // cancel button 
-        document.getElementById('resetBtn').addEventListener('click', () => {
+        document.getElementById('resetBtn').addEventListener('click', () => { // when canceledclose model
             document.getElementById('rate_amount').value = 0;
             ratings(0);
             document.getElementById('model_popup').style.display = 'none';
