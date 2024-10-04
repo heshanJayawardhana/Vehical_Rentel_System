@@ -172,6 +172,37 @@ CREATE TABLE BranchContact(
     PRIMARY KEY(BranchID,Telno),
     FOREIGN KEY(BranchID) REFERENCES Branch(BranchID)
     );
+CREATE TABLE RentalAgent(
+    AgentID INT PRIMARY KEY,
+    StaffID INT,
+    FOREIGN KEY(StaffID) REFERENCES Staff(StaffID)
+);
+
+INSERT INTO RentalAgent (AgentID, StaffID)
+VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5);
+
+
+CREATE TABLE Rental(
+    RentalID INT PRIMARY KEY,
+    ReservationID INT,
+    AgentID INT,
+    JourneyStatus VARCHAR(20),
+    FOREIGN KEY(ReservationID) REFERENCES Reservation(ReservationID),
+    FOREIGN KEY(AgentID) REFERENCES RentalAgent(AgentID)
+);
+
+INSERT INTO Rental (RentalID, ReservationID, AgentID, JourneyStatus)
+VALUES
+(1, 1, 1, 'Completed'),
+(2, 2, 2, 'In Progress'),
+(3, 3, 3, 'Pending'),
+(4, 4, 4, 'Cancelled'),
+(5, 5, 5, 'Completed');
 
 
 
