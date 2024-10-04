@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Our Services - EasyRide</title>
+    <title>Our Services | Easy Ride Rentalse</title>
     <link rel="stylesheet" href="services.css">
+
+    <link rel="shortcut icon" href="../Images/favicon.ico" type="image/x-icon">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -17,7 +19,7 @@
 
     <main>
         <section class="hero-image">
-            <img src="car2.jpg" alt="Hero Image">
+            <img src="./images/car2.jpg" alt="Hero Image">
         </section>
 
         <section class="services">

@@ -1,6 +1,6 @@
 <?php
 
-include 'config.php'; // Database connection
+include '../includes/config.php'; // Database connection
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Validate and sanitize input data

@@ -1,5 +1,5 @@
 <?php
-include 'config.php'; // Database connection
+    include '../includes/config.php'; // Database connection
 
 // Fetch all payment records
 $result = $conn->query("SELECT * FROM payment");
@@ -14,6 +14,11 @@ $result = $conn->query("SELECT * FROM payment");
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+
+    <?php
+        include_once '../includes/header.php'; // Database connection
+    ?>
+
     <div class="container2">
         <table class="payment-table">
         <h2>Payment Records</h2>
@@ -66,5 +71,10 @@ $result = $conn->query("SELECT * FROM payment");
             });
         }
     </script>
+
+    <?php
+        include_once '../includes/footer.php'; // Database connection
+    ?>
+
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-include 'config.php'; // Database connection
+include '../includes/config.php'; // Database connection
 
 // Get payment ID from query string
 $payment_id = isset($_GET['payment_id']) ? intval($_GET['payment_id']) : 0;

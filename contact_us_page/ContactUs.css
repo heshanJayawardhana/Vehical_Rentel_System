@@ -1,0 +1,222 @@
+/* General container styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url(../images/contact_us_bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0;
+}
+
+.logo{
+    width: 80px;
+    cursor: pointer;
+}
+.name {
+    text-align: center;
+    margin-top: -60px;
+    font-style: italic;
+    font-weight: bold;
+}
+.user-profile img {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    margin-right: 10px; 
+    cursor: pointer;
+    padding: 8px 12px;
+    border : none;
+    position:absolute;
+    right:10px;
+    top: 10px;
+    margin-top: -5px;
+}
+.logout-btn {
+    background-color: #9b9b9b;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;   
+    right: 10px; 
+    margin-top: 45px;
+}
+
+.navbar {
+    width: 100%;
+    margin-right: -20px;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(0, 0, 69);
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: small;
+}
+
+.navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: #73dcef;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+
+.container {
+   display:flex;
+   justify-content: space-between;
+   padding: 20px;
+}
+.section-left{
+    width: 45%;
+    text-align: left;
+    padding-right: 20px;
+}
+
+.section-left h2, .section-left h3{
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.section-left h3{
+    font-weight: bold;
+}
+
+.section-left p{
+    margin-bottom: 20px;
+    color: black;
+    line-height: 1.6;
+}
+
+.social-media-icon {
+    display: flex;
+    gap: 20px; /* Space between social media links */
+    margin-top: 10px;
+}
+
+.social-media-icon a {
+    color: black;
+    font-size: 24px; /* Icon size */
+    transition: color 0.3s;
+}
+
+.social-media-icon a:hover {
+    color: #007BFF;
+}
+
+.section-right{
+    width: 45%;
+}
+
+/* Form container styling */
+.container-form {
+    max-width: 500px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Form group styling */
+.group-form {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Labels */
+.group-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Input and Textarea styling */
+.group-form input, .group-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Submit button styling */
+button[type = "submit"] {
+    width: 40%;
+    background-color: rgb(3, 55, 111);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    gap: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+.sub_edit_field{
+    display: flex;
+    gap:20px;
+}
+
+button[type = "submit"]:hover {
+    background-color:rgb(36, 129, 206);
+}
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+.footer-sections {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.footer-column ul {
+    list-style-type: none;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-newsletter form {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-newsletter input {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+footer p {
+    text-align: center;
+    margin-top: 20px;
+}
