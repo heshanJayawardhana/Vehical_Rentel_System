@@ -63,6 +63,15 @@ CREATE TABLE Customers (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+INSERT INTO Customers (user_id, first_name, last_name, date_of_birth, gender, nic_number, licence_number, address, mobile, email, nic_pdf, profile_image, password)
+VALUES
+    ('CS001', 'John', 'Doe', '1990-01-15', 'male', 'N123456789V', 'L123456789', '123 Elm St, Springfield', '0712345678', 'john.doe@example.com', 'nic_john.pdf', 'profile_john.jpg', 'hashedpassword1'),
+    ('CS002', 'Jane', 'Smith', '1985-06-30', 'female', 'N987654321V', 'L987654321', '456 Maple Ave, Springfield', '0723456789', 'jane.smith@example.com', 'nic_jane.pdf', 'profile_jane.jpg', 'hashedpassword2'),
+    ('CS003', 'Alice', 'Johnson', '1992-12-05', 'female', 'N456789123V', 'L123789456', '789 Oak Dr, Springfield', '0734567890', 'alice.johnson@example.com', 'nic_alice.pdf', 'profile_alice.jpg', 'hashedpassword3'),
+    ('CS004', 'Michael', 'Brown', '1988-03-22', 'male', 'N321654987V', 'L987123654', '101 Pine Ln, Springfield', '0745678901', 'michael.brown@example.com', 'nic_michael.pdf', 'profile_michael.jpg', 'hashedpassword4'),
+    ('CS005', 'Emily', 'Davis', '1995-09-10', 'female', 'N159753468V', 'L456123789', '202 Cedar Blvd, Springfield', '0756789012', 'emily.davis@example.com', 'nic_emily.pdf', 'profile_emily.jpg', 'hashedpassword5');
+
+
 -- create drivers table
 CREATE TABLE Drivers (
     user_id VARCHAR(5) PRIMARY KEY, -- DRXXX
