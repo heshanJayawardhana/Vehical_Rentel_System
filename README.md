@@ -140,7 +140,7 @@ CREATE TABLE payment (
 );
 
 CREATE TABLE Branch(
-    BranchID INT PRIMARY KEY,
+    BranchID INT AUTO_INCREMENT PRIMARY KEY,
     Email VARCHAR(100),
     Address VARCHAR(100),
     Location VARCHAR(50)
