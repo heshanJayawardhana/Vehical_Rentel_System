@@ -147,6 +147,17 @@ CREATE TABLE Branch(
     );
 
 ```
+CREATE TABLE reservation (
+    BookingID INT AUTO_INCREMENT PRIMARY KEY,    -- Unique booking ID for each reservation
+    vehicleID INT(4),                            -- Stores the vehicle number or ID
+    ContactNo VARCHAR(20),                       -- Contact number including country code (+94xxxxxxx)
+    Destination_Purpose VARCHAR(255),            -- Purpose of the trip or destination
+    RentalStratDate_Time DATETIME,               -- Start date and time of the rental
+    RentalEndDate_Time DATETIME,                 -- End date and time of the rental
+    NoOfMembers INT,                             -- Number of members for the trip
+    AdditionalNote TEXT,                         -- Additional notes for the reservation
+    NeedaDriver TEXT                             -- Indicates whether a driver is needed (stored as text, length 3)
+);
 
 ## Step 6: Exit
 1. After setting everything up, you can log out from phpMyAdmin.
