@@ -209,7 +209,7 @@ CREATE TABLE Vehicle(
 	   year DATE(4),
 	   brand VARCHAR(20),
 	   type VARCHAR(20),
-	   vehicleNo INT(10),
+	   vehicleNo VARCHAR(10),
 );
 
 
