@@ -212,6 +212,14 @@ CREATE TABLE Vehicle(
 	   vehicleNo VARCHAR(10),
 );
 
+INSERT INTO Vehicle  (year, brand, type, vehicleNo)
+VALUES
+	(2020, 'Toyota', 'Sedan', 'ABC1234'),
+	 (2018, 'Honda', 'SUV', 'XYZ5678'),
+	  (2019, 'Chevrolet', 'Convertible', 'LMN4321'),
+	 (2022, 'Ford', 'Truck', 'DEF4567'),
+	 (2021, 'BMW', 'Coupe', 'GHI8765');
+
 CREATE TABLE VehicleOwner (
     VehOwnerID INT PRIMARY KEY,
     FirstName VARCHAR(30) NOT NULL,
