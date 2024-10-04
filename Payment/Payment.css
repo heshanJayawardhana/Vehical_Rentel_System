@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body{
+background-image: url(bg-image.jpg);
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.wrapper-form {
+    background:transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+}
+
+h1 {
+    text-align: center;
+    color: black;
+    margin-bottom: 20px;
+}
+
+
+.group-form {
+    margin-bottom: 20px;
+}
+
+.wrapper-form label {
+    font-weight: bold;
+    color: black;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.wrapper-form input[type="text"],
+.wrapper-form input[type="email"],
+.wrapper-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #0c0c0c;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+.payment-method {
+    margin-bottom: 20px;
+}
+
+.payment-method label {
+    font-size: 16px;
+    margin-right: 10px;
+    font-weight: bold;
+    color: black;
+}
+
+
+/* Card Payment and Cash Details */
+#card-details,
+#cash-details {
+    margin-bottom: 20px;
+    color: #c3e6cb;
+}
+
+/* Total Price Input */
+.wrapper-form #totalPrice {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* Button Styling */
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+/* Input Focus Effects */
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+input:invalid {
+    border-color: black;
+}
+
+
+/* Create_payment styles */
+
+.container1 {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    flex-direction: column;
+}
+
+h2 {
+    text-align: center;
+    color: black;
+    margin-bottom: 20px;
+}
+
+/* Alert Styling */
+.alert1 {
+    background-color: #c3e6cb;
+    color: #155724;
+    padding: 15px;
+    border-radius: 5px;
+    width: 80%;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid #c3e6cb;
+}
+
+.alert3 {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 5px;
+    width: 80%;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+}
+
+/* Table Styling */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    color: black;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Button Styling */
+.back_button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.back_button:hover {
+    background-color: #0056b3;
+}
+
+
+/* read_payment styles */
+
+.container2 {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    flex-direction: column;  
+}
+
+.payment-table h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Table styles */
+.payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.payment-table th,
+.payment-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.payment-table th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+}
+
+.payment-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.payment-table td {
+    color: #555;
+}
+
+/* Button styles */
+.edit-button, .delete-button, .add-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Edit button styles */
+.edit-button {
+    background-color: #28a745;
+    color: white;
+    margin-right: 5px;
+}
+
+.edit-button:hover {
+    background-color: #218838;
+}
+
+/* Delete button styles */
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Add button styles */
+.add-button {
+    background-color: #007bff;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    width: 200px;
+    margin-top: 20px;
+}
+
+.add-button:hover {
+    background-color: #0069d9;
+}
+
+/* Center the Add New Payment button */
+.center {
+    text-align: center;
+}
+
+
+/* edit_payment styles */
+.container3{
+    font-family: Arial, sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;  
+}
+
+.wrapper-form1 {
+    background:transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.group-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: black;
+}
+
+/* Input and Select field styles */
+.wrapper-form1 input[type="text"],
+.wrapper-form1 input[type="email"],
+.wrapper-form1 input[type="number"],
+select {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: black;
+}
+
+.wrapper-form1 input[type="text"]:focus,
+.wrapper-form1 input[type="email"]:focus,
+.wrapper-form1 input[type="number"]:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+/* Button styles */
+.submit-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+/* Success message container */
+.swal2-popup {
+    font-size: 16px !important;
+}
+
