@@ -1,0 +1,122 @@
+CREATE TABLE Branch(
+    BranchID INT PRIMARY KEY,
+    Email VARCHAR(100),
+    Address VARCHAR(100),
+    Location VARCHAR(50)
+    );
+
+INSERT INTO Branch (BranchID, Email, Address, Location)
+VALUES
+(1, 'colombo.branch@easyride.com', '123 Main Street, Colombo 01', 'Colombo'),
+(2, 'kandy.branch@easyride.com', '456 Temple Road, Kandy', 'Kandy'),
+(3, 'galle.branch@easyride.com', '789 Lighthouse Avenue, Galle', 'Galle'),
+(4, 'negombo.branch@easyride.com', '321 Beachside Drive, Negombo', 'Negombo'),
+(5, 'jaffna.branch@easyride.com', '654 Unity Lane, Jaffna', 'Jaffna');
+
+    
+CREATE TABLE BranchContact(
+    BranchID INT,
+    Telno VARCHAR (15),
+    PRIMARY KEY(BranchID,Telno),
+    FOREIGN KEY(BranchID) REFERENCES Branch(BranchID)
+    );
+    
+INSERT INTO BranchContact (BranchID, Telno)
+VALUES
+(1, '+94112345678'),
+(1, '+94118765432'),
+(2, '+94812223344'),
+(2, '+94817778899'),
+(3, '+94912221111'),
+(4, '+94312223344'),
+(5, '+94212223344');
+
+
+
+
+
+CREATE TABLE Reservation(
+    ReservationID INT PRIMARY KEY,
+    CID INT,
+    BranchID INT,
+    Destination VARCHAR(50),
+    NoOfAdults INT,
+    NoOfChildren INT,
+    PickupTime TIME,
+    ReturnTime TIME,
+    PickupDate DATE,
+    ReturnDate DATE,
+    FOREIGN KEY(CID) REFERENCES customer(CID),
+    FOREIGN KEY(BranchID) REFERENCES Branch(BranchID)
+    );
+
+INSERT INTO Reservation (ReservationID, CID, BranchID, Destination, NoOfAdults, NoOfChildren, PickupTime, ReturnTime, PickupDate, ReturnDate)
+VALUES
+(1, 101, 1, 'Galle', 2, 1, '09:00:00', '17:00:00', '2024-10-05', '2024-10-05'),
+(2, 102, 2, 'Kandy', 4, 2, '08:30:00', '18:00:00', '2024-10-06', '2024-10-06'),
+(3, 103, 3, 'Colombo', 1, 0, '10:00:00', '15:00:00', '2024-10-07', '2024-10-07'),
+(4, 104, 4, 'Negombo', 3, 1, '07:45:00', '16:30:00', '2024-10-08', '2024-10-08'),
+(5, 105, 5, 'Jaffna', 2, 2, '09:15:00', '19:00:00', '2024-10-09', '2024-10-09');
+
+CREATE TABLE RentalAgent(
+    AgentID INT PRIMARY KEY,
+    StaffID INT,
+    FOREIGN KEY(StaffID) REFERENCES Staff(StaffID)
+);
+
+CREATE TABLE Rental(
+    RentalID INT PRIMARY KEY,
+    ReservationID INT,
+    AgentID INT,
+    JourneyStatus VARCHAR(20),
+    FOREIGN KEY(ReservationID) REFERENCES Reservation(ReservationID),
+    FOREIGN KEY(AgentID) REFERENCES RentalAgent(AgentID)
+);
+
+
+INSERT INTO RentalAgent (AgentID, StaffID)
+VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5);
+
+INSERT INTO Rental (RentalID, ReservationID, AgentID, JourneyStatus)
+VALUES
+(1, 1, 1, 'Completed'),
+(2, 2, 2, 'In Progress'),
+(3, 3, 3, 'Pending'),
+(4, 4, 4, 'Cancelled'),
+(5, 5, 5, 'Completed');
+
+CREATE TABLE Payment(
+    PaymentID INT PRIMARY KEY,
+    RentalID INT,
+    PaymentStatus VARCHAR(10),
+    Amount FLOAT,
+    Method VARCHAR(20),
+    Date DATE,
+    FOREIGN KEY(RentalID) REFERENCES Rental(RentalID)
+    );
+
+INSERT INTO Payment (PaymentID, RentalID, PaymentStatus, Amount, Method, Date)
+VALUES
+(1, 1, 'Paid', 250.50, 'Credit Card', '2024-09-30'),
+(2, 2, 'Pending', 150.00, 'Cash', '2024-09-29'),
+(3, 3, 'Paid', 320.75, 'Bank Transfer', '2024-09-28'),
+(4, 4, 'Failed', 100.00, 'PayPal', '2024-09-27'),
+(5, 5, 'Paid', 75.00, 'Debit Card', '2024-09-26');
+
+
+ALTER TABLE rental
+ADD PaymentStatus VARCHAR(20);
+
+
+
+INSERT INTO Driver (DriverID, StaffID, LicenseNo) VALUES
+(1, 1, 'D123456'),
+(2, 2, 'D654321'),
+(3, 3, 'D987654'),
+(4, 4, 'D456789'),
+(5, 5, 'D321654');

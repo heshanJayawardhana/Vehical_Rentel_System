@@ -1,0 +1,3 @@
+document.getElementsByClassName('deleteBtn'){
+    row = 
+}
