@@ -111,6 +111,15 @@ CREATE TABLE reviews (
     FOREIGN KEY (customer_id) REFERENCES Customers(user_id) -- Define foreign key constraint
 );
 
+INSERT INTO reviews (id, customer_id, review, rate)
+VALUES
+    ('RV001', 'CS001', 'Great service and friendly staff!', 5),
+    ('RV002', 'CS002', 'The experience was good, but there was a delay.', 4),
+    ('RV003', 'CS003', 'Not satisfied with the vehicle condition.', 2),
+    ('RV004', 'CS004', 'Excellent experience! Highly recommend.', 5),
+    ('RV005', 'CS005', 'Average service, but the car was nice.', 3);
+
+
 --Create staff table
 CREATE TABLE Staff(
     StaffID INT PRIMARY KEY,
