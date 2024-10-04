@@ -144,4 +144,4 @@ require 'config.php';
             </div>
         </div>
         <p>&copy; 2024 EasyRide. All rights reserved.</p>
-    </footer>
+</footer>

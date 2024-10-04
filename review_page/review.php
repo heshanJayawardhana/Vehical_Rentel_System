@@ -175,7 +175,7 @@ if (isset($_SESSION['type'], $_SESSION['user_id'])) {
 
     // Prepare the SQL statement
     $stmt = $conn->prepare('SELECT * FROM ' . $_SESSION['type'] . ' WHERE user_id = ?');
-    $stmt->bind_param('i', $_SESSION['user_id']);
+    $stmt->bind_param('s', $_SESSION['user_id']);
     $stmt->execute();
     $details = $stmt->get_result();
 
@@ -220,6 +220,8 @@ if (isset($_SESSION['type'], $_SESSION['user_id'])) {
     </div>
     ';
 }
+
+
 ?>
         
     </div>
@@ -290,6 +292,7 @@ if (isset($_SESSION['type'], $_SESSION['user_id'])) {
         // cancel button 
         document.getElementById('resetBtn').addEventListener('click', () => { // when canceledclose model
             document.getElementById('rate_amount').value = 0;
+            document.getElementById('feedback').value = "RVXXX";
             ratings(0);
             document.getElementById('model_popup').style.display = 'none';
         });
@@ -306,6 +309,11 @@ if (isset($_SESSION['type'], $_SESSION['user_id'])) {
         }
 
     </script>
+
+    <?php
+        // footer
+        include_once '../includes/footer.php';
+    ?>
 
 </body>
 </html>

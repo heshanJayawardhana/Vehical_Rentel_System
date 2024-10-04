@@ -83,7 +83,7 @@
                         </div>
                         <div class="user_drop dropdown">
                             <a href="">profile</a>
-                            <a href="">log out</a>
+                            <a href="../includes/logout.php">log out</a>
                         </div>
                     </div>
                 </div>

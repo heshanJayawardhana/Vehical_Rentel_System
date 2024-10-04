@@ -17,7 +17,7 @@ a {
 
 header{
     padding: 2px 15px;
-    width: calc(100% - 30px);
+    width: 100%;
     background-color: #11115a;
     color: aliceblue;
     z-index: 100;
