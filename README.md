@@ -172,6 +172,15 @@ CREATE TABLE BranchContact(
     PRIMARY KEY(BranchID,Telno),
     FOREIGN KEY(BranchID) REFERENCES Branch(BranchID)
     );
+
+ INSERT INTO BranchContact (BranchID, Telno)
+VALUES 
+	(101, '123-456-7890'),
+	(102, '098-765-4321'),
+	103, '555-123-4567'),
+	(104, '444-321-6789'),
+	(105, '333-654-9870');
+
 CREATE TABLE RentalAgent(
     AgentID INT PRIMARY KEY,
     StaffID INT,
