@@ -91,6 +91,15 @@ CREATE TABLE Drivers (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+INSERT INTO Drivers (user_id, first_name, last_name, date_of_birth, gender, nic_number, licence_number, address, mobile, email, nic_pdf, licence_pdf, profile_image, password)
+VALUES
+    ('DR001', 'John', 'Doe', '1988-04-15', 'male', 'N123456789V', 'L123456789', '123 Main St, Springfield', '0712345678', 'john.doe@example.com', 'nic_john.pdf', 'licence_john.pdf', 'profile_john.jpg', 'hashedpassword1'),
+    ('DR002', 'Emily', 'Clark', '1992-07-22', 'female', 'N987654321V', 'L987654321', '456 Maple Ave, Springfield', '0723456789', 'emily.clark@example.com', 'nic_emily.pdf', 'licence_emily.pdf', 'profile_emily.jpg', 'hashedpassword2'),
+    ('DR003', 'Michael', 'Brown', '1985-01-30', 'male', 'N456789123V', 'L123789456', '789 Oak Dr, Springfield', '0734567890', 'michael.brown@example.com', 'nic_michael.pdf', 'licence_michael.pdf', 'profile_michael.jpg', 'hashedpassword3'),
+    ('DR004', 'Sarah', 'Johnson', '1990-12-05', 'female', 'N321654987V', 'L987123654', '101 Pine Ln, Springfield', '0745678901', 'sarah.johnson@example.com', 'nic_sarah.pdf', 'licence_sarah.pdf', 'profile_sarah.jpg', 'hashedpassword4'),
+    ('DR005', 'David', 'Smith', '1995-03-14', 'male', 'N159753468V', 'L456123789', '202 Cedar Blvd, Springfield', '0756789012', 'david.smith@example.com', 'nic_david.pdf', 'licence_david.pdf', 'profile_david.jpg', 'hashedpassword5');
+
+
 -- create reviews table
 CREATE TABLE reviews (
     id VARCHAR(5) PRIMARY KEY, -- RVXXX
