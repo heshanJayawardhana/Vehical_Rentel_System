@@ -139,6 +139,12 @@ CREATE TABLE payment (
     confirmed BOOLEAN DEFAULT 0
 );
 
+CREATE TABLE Branch(
+    BranchID INT PRIMARY KEY,
+    Email VARCHAR(100),
+    Address VARCHAR(100),
+    Location VARCHAR(50)
+    );
 
 ```
 
