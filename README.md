@@ -212,6 +212,22 @@ CREATE TABLE Vehicle(
 	   vehicleNo VARCHAR(10),
 );
 
+CREATE TABLE VehicleOwner (
+    VehOwnerID INT PRIMARY KEY,
+    FirstName VARCHAR(30) NOT NULL,
+    LastName VARCHAR(30) NOT NULL,
+    Address VARCHAR(100),
+    NIC CHAR(15) NOT NULL,
+    Salary FLOAT
+);
+
+INSERT INTO VehicleOwner (VehOwnerID, FirstName, LastName, Address, NIC, Salary)
+VALUES
+    (1, 'John', 'Doe', '123 Elm St, Springfield', 'N123456789V', 55000.00),
+    (2, 'Jane', 'Smith', '456 Maple Ave, Springfield', 'N987654321V', 62000.50),
+    (3, 'Alice', 'Johnson', '789 Oak Dr, Springfield', 'N543216789V', 72000.75),
+    (4, 'Michael', 'Brown', '101 Pine Ln, Springfield', 'N112233445V', 58000.25),
+    (5, 'Emily', 'Davis', '202 Cedar Blvd, Springfield', 'N556677889V', 60000.00);
 
 ## Step 6: Exit
 1. After setting everything up, you can log out from phpMyAdmin.
