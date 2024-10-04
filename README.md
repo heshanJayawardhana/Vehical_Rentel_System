@@ -204,6 +204,13 @@ VALUES
 (4, 4, 4, 'Cancelled'),
 (5, 5, 5, 'Completed');
 
+CREATE TABLE Vehicle(
+	   vehicleID INT(4) AUTO_INCREMENT PRIMARY KEY,
+	   year DATE(4),
+	   brand VARCHAR(20),
+	   type VARCHAR(20),
+	   vehicleNo INT(10),
+);
 
 
 ## Step 6: Exit
