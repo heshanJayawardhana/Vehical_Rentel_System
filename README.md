@@ -157,7 +157,22 @@ CREATE TABLE reservation (
     AdditionalNote TEXT,                         -- Additional notes for the reservation
     NeedaDriver TEXT                             -- Indicates whether a driver is needed (stored as text, length 3)
 );
-```
+INSERT INTO Branch (BranchID, Email, Address, Location)
+VALUES
+(1, 'colombo.branch@easyride.com', '123 Main Street, Colombo 01', 'Colombo'),
+(2, 'kandy.branch@easyride.com', '456 Temple Road, Kandy', 'Kandy'),
+(3, 'galle.branch@easyride.com', '789 Lighthouse Avenue, Galle', 'Galle'),
+(4, 'negombo.branch@easyride.com', '321 Beachside Drive, Negombo', 'Negombo'),
+(5, 'jaffna.branch@easyride.com', '654 Unity Lane, Jaffna', 'Jaffna');
+
+    
+CREATE TABLE BranchContact(
+    BranchID INT,
+    Telno VARCHAR (15),
+    PRIMARY KEY(BranchID,Telno),
+    FOREIGN KEY(BranchID) REFERENCES Branch(BranchID)
+    );
+
 
 
 ## Step 6: Exit
