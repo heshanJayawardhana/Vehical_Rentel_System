@@ -146,7 +146,6 @@ CREATE TABLE Branch(
     Location VARCHAR(50)
     );
 
-```
 CREATE TABLE reservation (
     BookingID INT AUTO_INCREMENT PRIMARY KEY,    -- Unique booking ID for each reservation
     vehicleID INT(4),                            -- Stores the vehicle number or ID
@@ -158,6 +157,8 @@ CREATE TABLE reservation (
     AdditionalNote TEXT,                         -- Additional notes for the reservation
     NeedaDriver TEXT                             -- Indicates whether a driver is needed (stored as text, length 3)
 );
+```
+
 
 ## Step 6: Exit
 1. After setting everything up, you can log out from phpMyAdmin.
