@@ -49,3 +49,11 @@ CREATE TABLE reviews (
     
     FOREIGN KEY (customer_id) REFERENCES Customers(user_id) -- Define foreign key constraint
 );
+
+CREATE TABLE Branch(
+    BranchID INT PRIMARY KEY,
+    Email VARCHAR(100),
+    Address VARCHAR(100),
+    Location VARCHAR(50)
+    );
+
