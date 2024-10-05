@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./home.css" />
     <link rel="stylesheet" href="./slideshow.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="js/slideshow.js" defer></script>
+    <script src="./slideshow.js" defer></script>
     
 
 </head>
