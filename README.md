@@ -184,6 +184,15 @@ CREATE TABLE reservation (
     AdditionalNote TEXT,                         -- Additional notes for the reservation
     NeedaDriver TEXT                             -- Indicates whether a driver is needed (stored as text, length 3)
 );
+
+INSERT INTO reservation (vehicleID, ContactNo, Destination_Purpose, RentalStratDate_Time, RentalEndDate_Time, NoOfMembers, AdditionalNote, NeedaDriver) 
+VALUES 
+(101, '0723456789', 'Family trip to Kandy', '2024-10-10 10:00:00', '2024-10-15 18:00:00', 4, 'Please ensure the vehicle has a child seat.', 'Yes'),
+(102, '0789012345', 'Business meeting in Colombo', '2024-10-12 08:00:00', '2024-10-12 17:00:00', 2, 'Need Wi-Fi in the vehicle.', 'No'),
+(103, '0765432100', 'Wedding in Galle', '2024-10-20 15:00:00', '2024-10-21 02:00:00', 6, 'Require decorations inside the vehicle.', 'Yes'),
+(104, '0781234567', 'Airport transfer', '2024-10-25 22:00:00', '2024-10-25 23:30:00', 1, 'Flight arrives at 10:00 PM.', 'No'),
+(105, '0776543210', 'Tour of the cultural triangle', '2024-10-30 09:00:00', '2024-11-02 18:00:00', 5, 'Interested in a guided tour.', 'Yes');
+
 INSERT INTO Branch (BranchID, Email, Address, Location)
 VALUES
 (1, 'colombo.branch@easyride.com', '123 Main Street, Colombo 01', 'Colombo'),
