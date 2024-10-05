@@ -63,6 +63,15 @@ CREATE TABLE Customers (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+INSERT INTO Customers (user_id, first_name, last_name, date_of_birth, gender, nic_number, licence_number, address, mobile, email, nic_pdf, profile_image, password)
+VALUES
+    ('CS001', 'John', 'Doe', '1990-01-15', 'male', 'N123456789V', 'L123456789', '123 Elm St, Springfield', '0712345678', 'john.doe@example.com', 'nic_john.pdf', 'profile_john.jpg', 'hashedpassword1'),
+    ('CS002', 'Jane', 'Smith', '1985-06-30', 'female', 'N987654321V', 'L987654321', '456 Maple Ave, Springfield', '0723456789', 'jane.smith@example.com', 'nic_jane.pdf', 'profile_jane.jpg', 'hashedpassword2'),
+    ('CS003', 'Alice', 'Johnson', '1992-12-05', 'female', 'N456789123V', 'L123789456', '789 Oak Dr, Springfield', '0734567890', 'alice.johnson@example.com', 'nic_alice.pdf', 'profile_alice.jpg', 'hashedpassword3'),
+    ('CS004', 'Michael', 'Brown', '1988-03-22', 'male', 'N321654987V', 'L987123654', '101 Pine Ln, Springfield', '0745678901', 'michael.brown@example.com', 'nic_michael.pdf', 'profile_michael.jpg', 'hashedpassword4'),
+    ('CS005', 'Emily', 'Davis', '1995-09-10', 'female', 'N159753468V', 'L456123789', '202 Cedar Blvd, Springfield', '0756789012', 'emily.davis@example.com', 'nic_emily.pdf', 'profile_emily.jpg', 'hashedpassword5');
+
+
 -- create drivers table
 CREATE TABLE Drivers (
     user_id VARCHAR(5) PRIMARY KEY, -- DRXXX
@@ -82,6 +91,15 @@ CREATE TABLE Drivers (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+INSERT INTO Drivers (user_id, first_name, last_name, date_of_birth, gender, nic_number, licence_number, address, mobile, email, nic_pdf, licence_pdf, profile_image, password)
+VALUES
+    ('DR001', 'John', 'Doe', '1988-04-15', 'male', 'N123456789V', 'L123456789', '123 Main St, Springfield', '0712345678', 'john.doe@example.com', 'nic_john.pdf', 'licence_john.pdf', 'profile_john.jpg', 'hashedpassword1'),
+    ('DR002', 'Emily', 'Clark', '1992-07-22', 'female', 'N987654321V', 'L987654321', '456 Maple Ave, Springfield', '0723456789', 'emily.clark@example.com', 'nic_emily.pdf', 'licence_emily.pdf', 'profile_emily.jpg', 'hashedpassword2'),
+    ('DR003', 'Michael', 'Brown', '1985-01-30', 'male', 'N456789123V', 'L123789456', '789 Oak Dr, Springfield', '0734567890', 'michael.brown@example.com', 'nic_michael.pdf', 'licence_michael.pdf', 'profile_michael.jpg', 'hashedpassword3'),
+    ('DR004', 'Sarah', 'Johnson', '1990-12-05', 'female', 'N321654987V', 'L987123654', '101 Pine Ln, Springfield', '0745678901', 'sarah.johnson@example.com', 'nic_sarah.pdf', 'licence_sarah.pdf', 'profile_sarah.jpg', 'hashedpassword4'),
+    ('DR005', 'David', 'Smith', '1995-03-14', 'male', 'N159753468V', 'L456123789', '202 Cedar Blvd, Springfield', '0756789012', 'david.smith@example.com', 'nic_david.pdf', 'licence_david.pdf', 'profile_david.jpg', 'hashedpassword5');
+
+
 -- create reviews table
 CREATE TABLE reviews (
     id VARCHAR(5) PRIMARY KEY, -- RVXXX
@@ -92,6 +110,15 @@ CREATE TABLE reviews (
     
     FOREIGN KEY (customer_id) REFERENCES Customers(user_id) -- Define foreign key constraint
 );
+
+INSERT INTO reviews (id, customer_id, review, rate)
+VALUES
+    ('RV001', 'CS001', 'Great service and friendly staff!', 5),
+    ('RV002', 'CS002', 'The experience was good, but there was a delay.', 4),
+    ('RV003', 'CS003', 'Not satisfied with the vehicle condition.', 2),
+    ('RV004', 'CS004', 'Excellent experience! Highly recommend.', 5),
+    ('RV005', 'CS005', 'Average service, but the car was nice.', 3);
+
 
 --Create staff table
 CREATE TABLE Staff(
@@ -157,6 +184,15 @@ CREATE TABLE reservation (
     AdditionalNote TEXT,                         -- Additional notes for the reservation
     NeedaDriver TEXT                             -- Indicates whether a driver is needed (stored as text, length 3)
 );
+
+INSERT INTO reservation (vehicleID, ContactNo, Destination_Purpose, RentalStratDate_Time, RentalEndDate_Time, NoOfMembers, AdditionalNote, NeedaDriver) 
+VALUES 
+(101, '0723456789', 'Family trip to Kandy', '2024-10-10 10:00:00', '2024-10-15 18:00:00', 4, 'Please ensure the vehicle has a child seat.', 'Yes'),
+(102, '0789012345', 'Business meeting in Colombo', '2024-10-12 08:00:00', '2024-10-12 17:00:00', 2, 'Need Wi-Fi in the vehicle.', 'No'),
+(103, '0765432100', 'Wedding in Galle', '2024-10-20 15:00:00', '2024-10-21 02:00:00', 6, 'Require decorations inside the vehicle.', 'Yes'),
+(104, '0781234567', 'Airport transfer', '2024-10-25 22:00:00', '2024-10-25 23:30:00', 1, 'Flight arrives at 10:00 PM.', 'No'),
+(105, '0776543210', 'Tour of the cultural triangle', '2024-10-30 09:00:00', '2024-11-02 18:00:00', 5, 'Interested in a guided tour.', 'Yes');
+
 INSERT INTO Branch (BranchID, Email, Address, Location)
 VALUES
 (1, 'colombo.branch@easyride.com', '123 Main Street, Colombo 01', 'Colombo'),
@@ -173,7 +209,78 @@ CREATE TABLE BranchContact(
     FOREIGN KEY(BranchID) REFERENCES Branch(BranchID)
     );
 
+ INSERT INTO BranchContact (BranchID, Telno)
+VALUES 
+	(101, '123-456-7890'),
+	(102, '098-765-4321'),
+	(103, '555-123-4567'),
+	(104, '444-321-6789'),
+	(105, '333-654-9870');
 
+CREATE TABLE RentalAgent(
+    AgentID INT PRIMARY KEY,
+    StaffID INT,
+    FOREIGN KEY(StaffID) REFERENCES Staff(StaffID)
+);
+
+INSERT INTO RentalAgent (AgentID, StaffID)
+VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5);
+
+
+CREATE TABLE Rental(
+    RentalID INT PRIMARY KEY,
+    ReservationID INT,
+    AgentID INT,
+    JourneyStatus VARCHAR(20),
+    FOREIGN KEY(ReservationID) REFERENCES Reservation(ReservationID),
+    FOREIGN KEY(AgentID) REFERENCES RentalAgent(AgentID)
+);
+
+INSERT INTO Rental (RentalID, ReservationID, AgentID, JourneyStatus)
+VALUES
+(1, 1, 1, 'Completed'),
+(2, 2, 2, 'In Progress'),
+(3, 3, 3, 'Pending'),
+(4, 4, 4, 'Cancelled'),
+(5, 5, 5, 'Completed');
+
+CREATE TABLE Vehicle(
+	   vehicleID INT(4) AUTO_INCREMENT PRIMARY KEY,
+	   year DATE(4),
+	   brand VARCHAR(20),
+	   type VARCHAR(20),
+	   vehicleNo VARCHAR(10),
+);
+
+INSERT INTO Vehicle  (year, brand, type, vehicleNo)
+VALUES
+	(2020, 'Toyota', 'Sedan', 'ABC1234'),
+	 (2018, 'Honda', 'SUV', 'XYZ5678'),
+	  (2019, 'Chevrolet', 'Convertible', 'LMN4321'),
+	 (2022, 'Ford', 'Truck', 'DEF4567'),
+	 (2021, 'BMW', 'Coupe', 'GHI8765');
+
+CREATE TABLE VehicleOwner (
+    VehOwnerID INT PRIMARY KEY,
+    FirstName VARCHAR(30) NOT NULL,
+    LastName VARCHAR(30) NOT NULL,
+    Address VARCHAR(100),
+    NIC CHAR(15) NOT NULL,
+    Salary FLOAT
+);
+
+INSERT INTO VehicleOwner (VehOwnerID, FirstName, LastName, Address, NIC, Salary)
+VALUES
+    (1, 'John', 'Doe', '123 Elm St, Springfield', 'N123456789V', 55000.00),
+    (2, 'Jane', 'Smith', '456 Maple Ave, Springfield', 'N987654321V', 62000.50),
+    (3, 'Alice', 'Johnson', '789 Oak Dr, Springfield', 'N543216789V', 72000.75),
+    (4, 'Michael', 'Brown', '101 Pine Ln, Springfield', 'N112233445V', 58000.25),
+    (5, 'Emily', 'Davis', '202 Cedar Blvd, Springfield', 'N556677889V', 60000.00);
 
 ## Step 6: Exit
 1. After setting everything up, you can log out from phpMyAdmin.

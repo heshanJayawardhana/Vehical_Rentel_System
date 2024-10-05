@@ -1,4 +1,8 @@
-/* Basic reset */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/*
+    font-family: "Ubuntu", sans-serif;
+*/
 * {
     margin: 0;
     padding: 0;
@@ -14,9 +18,10 @@ a {
 footer {
     background-color: #11115a;
     padding: 40px 0;
+    width: 100%;
     color: aliceblue;
     text-align: center;
-    font-family: Arial, sans-serif;
+    font-family: "Ubuntu", sans-serif;
     margin-top: 25px;
 }
 

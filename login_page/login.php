@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Sign In | Wander Wheel Rentals</title>
+    <title>Sign In | Easy Ride Rentals</title>
 
     <link rel="shortcut icon" href="../Images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./login.css">

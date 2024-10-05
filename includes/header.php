@@ -49,9 +49,9 @@
 
             <div class="sub_header">
                 <div class="mini_header">
-                    <a class="header_link" href="">Home</a>
+                    <a class="header_link" href="../home_page/index.php">Home</a>
                     <a class="header_link" href="">About</a>
-                    <a class="header_link" href="">Contct As</a>
+                    <a class="header_link" href="../contact_us_page/ContactUs.php">Contact us</a>
                     
                     <div class="header_link">
                         View
@@ -61,7 +61,7 @@
                         </div>
                         
                         <div class="header_drop dropdown">
-                            <a href="">Services</a>
+                            <a href="../services_page/services.php">Services</a>
                             <a href="">vehicle</a>
                             <a href="../review_page/review.php">Reviews</a>
                         </div>

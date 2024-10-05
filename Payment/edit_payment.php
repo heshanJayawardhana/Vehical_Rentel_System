@@ -1,5 +1,5 @@
 <?php
-include 'config.php'; // Database connection
+include '../includes/config.php'; // Database connection
 
 // Initialize variables
 $payment = null;
@@ -58,11 +58,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Payment</title>
+    <title>Edit Payment | Easy Ride Rentals</title>
     <link rel="stylesheet" href="Payment.css"> <!-- Link to your separate CSS file -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+
+    <?php
+        include_once "../includes/header.php";
+    ?>
+
     <div class="container3">
         <?php if ($success): ?>
             <script>
@@ -105,5 +110,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         <?php endif; ?>
     </div>
+    
+    <?php
+        include_once "../includes/footer.php";
+    ?>
+
 </body>
 </html>
