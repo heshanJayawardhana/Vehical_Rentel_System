@@ -49,7 +49,7 @@
 
             <div class="sub_header">
                 <div class="mini_header">
-                    <a class="header_link" href="">Home</a>
+                    <a class="header_link" href="../home_page/index.php">Home</a>
                     <a class="header_link" href="">About</a>
                     <a class="header_link" href="../contact_us_page/ContactUs.php">Contact us</a>
                     

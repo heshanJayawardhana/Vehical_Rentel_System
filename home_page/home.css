@@ -1,0 +1,167 @@
+/* Reset Default Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* General Styles */
+  body {
+    &.homepage {
+      background: #f2f2f2;
+    }
+  }
+  
+  
+  /* Slideshow */
+  .slideshow-container {
+    .mySlides {
+      &.fade {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  
+    .slideshow-dots {
+      .dot {
+        display: inline-block;
+      }
+    }
+  }
+  
+  /* Buttons */
+  .ride-btn-container {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  
+    .ride-btn {
+      background-color: #454a4f;
+      color: white;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: #4644cc;
+      }
+    }
+  
+    .login-btn {
+      background-color: transparent;
+      transition: all 0.3s ease;
+      border: none;
+      font-size: 18px;
+      text-decoration: underline;
+      color: #e1ece6;
+      font-weight: bolder;
+  
+      &:hover {
+        animation: blink 1s infinite;
+        color: #fbff06;
+      }
+    }
+  
+    @keyframes blink {
+      60%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 60;
+        color: gold;
+      }
+    }
+  
+    .member-para {
+      color: white;
+      margin-top: 10px;
+      font-size: 18px;
+    }
+  }
+  
+  /* Service Buttons */
+  .service-btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 50px 0;
+  
+    .service-btn {
+      background: linear-gradient(to bottom right, #800080, #0000ff);
+      color: white;
+      padding: 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 150px;
+  
+      &:hover {
+        background: linear-gradient(to right, #004080, #3f7cba);
+      }
+    }
+  }
+  
+  /* Special Section */
+  /* Why Choose Us Section */
+  .why-choose-us {
+    padding: 50px;
+    background-color: #f4f4f4;
+    text-align: center;
+  }
+  
+  .special-container {
+    background-image: url(../images/homebg.avif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    gap: 20px;
+  
+    .Special {
+      justify-content: space-around;
+      flex-wrap: wrap;
+      background: linear-gradient(to right, #004080, #3f7cba);
+      color: white;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 10px;
+      width: 30%;
+      text-align: center;
+      flex: 1;
+      min-width: 200px;
+      max-width: 250px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      &:hover {
+        transform: translateY(5px); /* Move the box up on hover */
+        z-index: 1; /* Bring the hovered element to the front */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow effect for depth */
+      }
+      h3 {
+        font-size: 20px;
+      }
+  
+      p {
+        font-size: 16px;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .Special {
+        width: 50%;
+      }
+    }
+  }
+  
+  
+  

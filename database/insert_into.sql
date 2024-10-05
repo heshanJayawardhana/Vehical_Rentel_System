@@ -6,3 +6,4 @@ VALUES
 ('CS004', 'Bob', 'Brown', '1995-12-05', 'male', 'NIC123789', 'LIC321654', '321 Maple St, Springfield, IL', '5554567890', 'bob.brown@example.com', '../documents/customers/nic_pdf/CS004_nic_scan_pdf.pdf', '../documents/customers/profile_pic/CS004_profile_picture.jpg', '$2y$10$mnop1234hashedpassword'),
 ('CS005', 'Charlie', 'Davis', '1978-07-30', 'male', 'NIC456123', 'LIC987321', '654 Cedar St, Springfield, IL', '5555678901', 'charlie.davis@example.com', '../documents/customers/nic_pdf/CS005_nic_scan_pdf.pdf', '../documents/customers/profile_pic/CS005_profile_picture.jpg', '$2y$10$qrst5678hashedpassword'),
 ('CS006', 'Eve', 'Wilson', '1992-11-10', 'female', 'NIC789456', 'LIC123456', '987 Birch St, Springfield, IL', '5556789012', 'eve.wilson@example.com', '../documents/customers/nic_pdf/CS006_nic_scan_pdf.pdf', '../documents/customers/profile_pic/CS006_profile_picture.jpg', '$2y$10$uvwx9101hashedpassword');
+

@@ -30,7 +30,7 @@
                 while($row=$result->fetch_assoc())
                 {   
                     echo "<tr>";
-                    echo "<td>".$row["ID"]."</td>"."<td>".$row["firstname"]."</td>"."<td>".$row["lastname"]."</td>"."<td>".$row["email"]."</td>"."<td>".$row["subject_"]."</td>"."<td>".$row["message_"]."</td>";
+                    echo "<td>".$row["id"]."</td>"."<td>".$row["firstname"]."</td>"."<td>".$row["lastname"]."</td>"."<td>".$row["email"]."</td>"."<td>".$row["subject"]."</td>"."<td>".$row["message"]."</td>";
                     echo "</tr>";
                 }
                 echo "</table>";
