@@ -5,26 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment | Easy Ride Rentals</title>
     
-    <?php  include_once '../includes/header.php'; ?>
     
     <link rel="stylesheet" href="Payment.css"> <!-- Link to external CSS file -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+
+    <?php  include_once '../includes/header.php'; ?>
     
+    <?php
+
+        include '../includes/config.php';
+
+        if (isset($_SESSION['type'], $_SESSION['user_id'])) {
+
+            $user_sql = "SELECT * FROM ".$_SESSION['type']." WHERE user_id ='".$_SESSION['user_id']."' LIMIT 1";
+            $user_result = $conn -> query($user_sql); 
+
+            if ($user_result) {
+                $user_data = $user_result -> fetch_assoc();
+            } else {
+                header('Location: ../error.html');
+                exit();
+            }
+
+        } else {
+            
+            $_SESSION['error_message'] = 'Log In First !';
+            header('Location: ../login_page/login.php'); // Redirect to your login page
+            exit();
+        }
+
+    ?>
+
     <div class="container">
         <div class="wrapper-form">
         <h1>Payment Form</h1>
                 <form action="./create_payment.php" method="post" enctype="multipart/form-data" onsubmit="confirmPayment(event)">
                     <div class="group-form">
                         <label for="firstname">First Name</label>
-                        <input type="text" id="firstname" name="firstname" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed">
+                        <input type="text" id="firstname" name="firstname" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed" value="<?php echo $user_data['first_name'] ?>">
             
                         <label for="lastname">Last Name</label>
-                        <input type="text" id="lastname" name="lastname" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed">
+                        <input type="text" id="lastname" name="lastname" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed" value="<?php echo $user_data['last_name'] ?>">
         
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required value="<?php echo $user_data['email'] ?>">
                         </div>
     
                         <div class="payment-method">
@@ -37,11 +63,11 @@
                     <div id="card-details">
                         <div class="group-form">
                             <label for="creditCardNum">Credit Card Number</label>
-                            <input type="text" id="creditCardNum" name="creditCardNum" maxlength="8" required pattern="\d{8}" title="Enter a 8-digit credit card number">
+                            <input type="text" id="creditCardNum" name="creditCardNum" maxlength="12" required pattern="\d{12}" title="Enter a 12-digit credit card number">
                         
                             <label for="date">Expiry Date (MM/YY)</label>
                             <input type="text" id="date" name="date" maxlength="5" required pattern="\d{2}/\d{2}" title="Format: MM/YY">
-                        
+
                             <label for="cvv">CVV</label>
                             <input type="text" id="cvv" name="cvv" maxlength="3" required pattern="\d{3}" title="Enter a 3-digit CVV">
                         </div>

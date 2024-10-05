@@ -8,7 +8,7 @@
 <body>
     <?php
 
-        header("Location: ./home_page/index.html");
+        header("Location: ./home_page/index.php");
         exit();
     
     ?>

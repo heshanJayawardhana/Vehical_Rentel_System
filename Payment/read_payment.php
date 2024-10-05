@@ -9,14 +9,14 @@ $result = $conn->query("SELECT * FROM payment");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Payments</title>
+    <title>View Payments | Easy Ride Rentals</title>
     <link rel="stylesheet" href="Payment.css"> <!-- Link to your separate CSS file -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
     <?php
-        include_once '../includes/header.php'; // Database connection
+        include_once '../includes/header.php'; // header
     ?>
 
     <div class="container2">
@@ -73,7 +73,7 @@ $result = $conn->query("SELECT * FROM payment");
     </script>
 
     <?php
-        include_once '../includes/footer.php'; // Database connection
+        include_once '../includes/footer.php'; // footer
     ?>
 
 </body>

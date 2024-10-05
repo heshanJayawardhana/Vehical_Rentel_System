@@ -50,7 +50,7 @@
             <div class="sub_header">
                 <div class="mini_header">
                     <a class="header_link" href="../home_page/index.php">Home</a>
-                    <a class="header_link" href="">About</a>
+                    <a class="header_link" href="../aboutpage/about.php">About</a>
                     <a class="header_link" href="../contact_us_page/ContactUs.php">Contact us</a>
                     
                     <div class="header_link">
@@ -62,7 +62,7 @@
                         
                         <div class="header_drop dropdown">
                             <a href="../services_page/services.php">Services</a>
-                            <a href="">vehicle</a>
+                            <a href="../vehicle_page/vehiclepg.php">vehicle</a>
                             <a href="../review_page/review.php">Reviews</a>
                         </div>
                     

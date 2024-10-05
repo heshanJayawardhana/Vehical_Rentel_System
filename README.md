@@ -249,21 +249,33 @@ VALUES
 (4, 4, 4, 'Cancelled'),
 (5, 5, 5, 'Completed');
 
-CREATE TABLE Vehicle(
-	   vehicleID INT(4) AUTO_INCREMENT PRIMARY KEY,
-	   year DATE(4),
-	   brand VARCHAR(20),
-	   type VARCHAR(20),
-	   vehicleNo VARCHAR(10),
+CREATE TABLE `vehicle` (
+  `vehicleID` INT(4) NOT NULL,
+  `year` YEAR DEFAULT NULL,
+  `brand` VARCHAR(20) DEFAULT NULL,
+  `vehicle_img` VARCHAR(255) NOT NULL,
+  `features` TEXT NOT NULL,
+  `type` VARCHAR(20) DEFAULT NULL,
+  `charge_rate` VARCHAR(10) NOT NULL,
+  `vehicleNo` VARCHAR(10) DEFAULT NULL,
+  PRIMARY KEY (`vehicleID`)
 );
 
-INSERT INTO Vehicle  (year, brand, type, vehicleNo)
-VALUES
-	(2020, 'Toyota', 'Sedan', 'ABC1234'),
-	 (2018, 'Honda', 'SUV', 'XYZ5678'),
-	  (2019, 'Chevrolet', 'Convertible', 'LMN4321'),
-	 (2022, 'Ford', 'Truck', 'DEF4567'),
-	 (2021, 'BMW', 'Coupe', 'GHI8765');
+
+INSERT INTO `vehicle` (`vehicleID`, `year`, `brand`, `vehicle_img`, `features`, `type`, `charge_rate`, `vehicleNo`) VALUES
+(1, 2020, 'Toyota', 'toyota_camry.jpg', 'Air Conditioning, Bluetooth, GPS', 'Sedan', '3500', 'AB1234'),
+(2, 2019, 'Honda', 'honda_civic.jpg', 'Air Conditioning, Bluetooth, Backup Camera', 'Sedan', '3000', 'CD5678'),
+(3, 2021, 'Nissan', 'nissan_sentra.jpg', 'Air Conditioning, Automatic, Bluetooth', 'Sedan', '4000', 'EF9012'),
+(4, 2020, 'Hyundai', 'hyundai_tucson.jpg', 'AWD, Air Conditioning, GPS', 'SUV', '5000', 'GH3456'),
+(5, 2021, 'Toyota', 'toyota_rav4.jpg', 'AWD, Bluetooth, Sunroof', 'SUV', '6000', 'IJ7890'),
+(6, 2019, 'Ford', 'ford_escape.jpg', 'Air Conditioning, Bluetooth, GPS', 'SUV', '5500', 'KL1234'),
+(7, 2022, 'Mercedes-Benz', 'mb_sprinter.jpg', 'Air Conditioning, 12 Seats, GPS', 'Van', '8000', 'MN5678'),
+(8, 2020, 'Ford', 'ford_transit.jpg', 'Air Conditioning, 15 Seats, Bluetooth', 'Van', '7500', 'OP9012'),
+(9, 2021, 'Toyota', 'toyota_hiace.jpg', 'Air Conditioning, 10 Seats, Backup Camera', 'Van', '7200', 'QR3456'),
+(10, 2021, 'Honda', 'honda_crv.jpg', 'AWD, Air Conditioning, Bluetooth', 'SUV', '5200', 'ST7890'),
+(11, 2018, 'Kia', 'kia_optima.jpg', 'Air Conditioning, Leather Seats, Bluetooth', 'Sedan', '2900', 'UV1234'),
+(12, 2022, 'Jeep', 'jeep_compass.jpg', 'AWD, Air Conditioning, Navigation', 'SUV', '5800', 'WX5678'),
+(13, 2020, 'Volkswagen', 'vw_transporter.jpg', 'Air Conditioning, 9 Seats, Bluetooth', 'Van', '7000', 'YZ9012');
 
 CREATE TABLE VehicleOwner (
     VehOwnerID INT PRIMARY KEY,

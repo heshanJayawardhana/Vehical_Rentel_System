@@ -7,3 +7,16 @@ VALUES
 ('CS005', 'Charlie', 'Davis', '1978-07-30', 'male', 'NIC456123', 'LIC987321', '654 Cedar St, Springfield, IL', '5555678901', 'charlie.davis@example.com', '../documents/customers/nic_pdf/CS005_nic_scan_pdf.pdf', '../documents/customers/profile_pic/CS005_profile_picture.jpg', '$2y$10$qrst5678hashedpassword'),
 ('CS006', 'Eve', 'Wilson', '1992-11-10', 'female', 'NIC789456', 'LIC123456', '987 Birch St, Springfield, IL', '5556789012', 'eve.wilson@example.com', '../documents/customers/nic_pdf/CS006_nic_scan_pdf.pdf', '../documents/customers/profile_pic/CS006_profile_picture.jpg', '$2y$10$uvwx9101hashedpassword');
 
+INSERT INTO Vehicle (year, brand, type, vehicleNo) VALUES
+(2020, 'Toyota', 'Sedan', 'ABC123'),
+(2021, 'Honda', 'SUV', 'XYZ456'),
+(2022, 'Ford', 'Truck', 'LMN789'),
+(2023, 'Chevrolet', 'Convertible', 'OPQ012'),
+(2022, 'Nissan', 'Hatchback', 'RST345'),
+(2021, 'BMW', 'Luxury', 'UVW678'),
+(2020, 'Hyundai', 'Sedan', 'JKL901'),
+(2023, 'Kia', 'Crossover', 'DEF234'),
+(2022, 'Volkswagen', 'Coupe', 'GHI567'),
+(2021, 'Mazda', 'SUV', 'NOP890'),
+(2020, 'Subaru', 'Wagon', 'QRS123'),
+(2023, 'Tesla', 'Electric', 'TUV456');

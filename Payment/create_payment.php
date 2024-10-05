@@ -61,11 +61,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Confirmation</title>
+    <title>Payment Confirmation | Easy Ride Rentals</title>
     <link rel="stylesheet" href="Payment.css"> <!-- Link to your separate CSS file -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+
+    <?php
+        include '../includes/header.php';
+    ?>
+
     <div class="container1">
     <h2>Payment Confirmation</h2>
         <?php if (isset($payment_data)): ?>
@@ -123,5 +128,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         <?php endif; ?>
     </div>
+
+    <?php
+        include '../includes/footer.php';
+    ?>
+
 </body>
 </html>
