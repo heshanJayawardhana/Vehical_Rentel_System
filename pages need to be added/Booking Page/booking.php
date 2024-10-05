@@ -22,14 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EasyRide</title>
-    <link rel="stylesheet" type="text/css" href="styles/booking.css" />
+    <link rel="stylesheet" type="text/css" href="./booking.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         .hidden { display: none; }
     </style>
 
-    <script src="js/booking.js"></script>
-    <script src="js/validation.js"></script>
+    <script src="./booking.js"></script>
+    <script src="./validation.js"></script>
 
     <style>
         .price-table {
@@ -66,17 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
 </div>
-
-    <nav class="navbar">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="news.html">Vehicles</a></li>
-            <li><a href="register.html">Services</a></li>
-            <li><a href="#">View</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Help</a></li>
-        </ul>
-    </nav>
 
     <h1 class="top">Experience Freedom on Wheels!</h1>
     <br><br>
@@ -138,12 +127,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ?>
 
 
-</div><!--close div container of readbox and reservation, topic1-->
+</div>
 
 <div class="form-content">
 
     <div class="btn-container">
-        <!--<button class="btn1" id="quickRentButton">Quick Rent</button>-->
+        
         <button class="btn1" id="planTripButton">Plan Your Trip</button>
         <button  class="btn1" id="updateBookingButton">Update Booking</button>
         <a href="readBooking.php"><button  class="btn1" id="myBookingButton">My Bookings</button></a>
@@ -246,71 +235,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
  <!--Footer-->
    
-<footer>
-    <div class="footer-container">
-
-    <div class="key">
-          <h4>Solution</h4>
-            <ul>
-              <a href="#"><li>Marketing</li></a>
-              <a href="#"><li>Analytics</li></a>
-              <a href="#"><li>commerce</li></a>
-              <a href="#"><li>Insights</li></a>
-            </ul>
-    </div>
-
-    <div class="key">
-        <h4>Support</h4>
-          <ul>
-            
-              <a href="#"><li>Pricing</li></a> 
-              <a href="#"><li>Documantation</li></a> 
-              <a href="#"><li>Guides</li></a> 
-              <a href="#"><li>API Status</li></a> 
-            
-          </ul>
-    </div>
-
-    <div class="key">
-        <h4>Company</h4>
-        <ul>
-            <a href="about.html"><li>About</li></a> 
-            <a href="#"><li>Blog</li></a> 
-            <a href="#"><li>Jobs</li></a> 
-            <a href="#"><li>Press</li></a> 
-        </ul>
-    </div>
-
-    <div class="key">
-        <h4>Legal</h4>
-        <ul>
-            <a href="#"><li>Claim</li></a>
-            <a href="#"><li>Privacy</li></a>
-            <a href="#"><li>Terms</li></a> 
-        </ul>
-    </div>
-
-    <div class="key">
-      <h4>Get the latest news and updates</h4>
-        <p>welcome to EasyRide</p>
-        <input type="text" placeholder="No file choosen">
-        <button class="subscribe-btn">Subscribe</button>
-    </div>
-
-  </div>
-
-
-  <div class="copy-right">
-            <p>&copy; 2024 EasyRide. All rights reserved.</p>
-            <div class="social-media">
-                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
-<hr> 
-
-</footer>
 
 </body>
 
