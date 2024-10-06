@@ -73,8 +73,9 @@ body {
     background-color: #f41a1a;  
 }
 .whole-form{
-    background-image: url(./bookbg.jpg);
+    background-image: url(./images/bookbg.jpg);
     background-position:center;
+    background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;

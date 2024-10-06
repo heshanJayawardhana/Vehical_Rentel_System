@@ -83,7 +83,7 @@
     
                     <div class="group-form">
                         <label for="totalPrice">Total Price</label>
-                        <input type="text" id="totalPrice" name="totalPrice" required pattern="\d+(\.\d{1,2})?" title="Only numbers are allowed">
+                        <input type="text" id="totalPrice" name="totalPrice" required pattern="\d+(\.\d{1,2})?" title="Only numbers are allowed" value="<?php echo $_GET['amount'] ?>">
                     </div>
     
                     <button type="submit" class="submit-button">Submit Payment</button>

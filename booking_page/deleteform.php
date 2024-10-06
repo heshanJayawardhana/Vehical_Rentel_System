@@ -62,7 +62,7 @@
         <form action="delete.php" method="POST" >
             ID:
             <input type="text" name="bId" placeholder="Enter booking ID" required><br><br>
-            <input type="submit" value="Delate">
+            <input type="submit" value="Delete">
         </form>
     </div>
     </body>

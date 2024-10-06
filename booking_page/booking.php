@@ -30,8 +30,8 @@ include '../includes/config.php';
         .hidden { display: none; }
     </style>
 
-    <script src="./booking.js"></script>
-    <script src="./validation.js"></script>
+    <script src="./js/booking.js"></script>
+    <script src="./js/validation.js"></script>
 
     <style>
         .price-table {
@@ -129,7 +129,14 @@ include '../includes/config.php';
             } else {
                 echo '<p>No vehicle selected.</p>';
             }
-            echo '<h4><u>Special Features: </u>'."<br/>". $vehicle['features']."<br/> " ."<br/> ". '</h4>';
+            echo '<h4><u>Special Features: </u><br/>'; //$vehicle['features']."<br/> "
+            
+            $specs = explode(",", $vehicle['features']);
+            foreach ($specs as $key => $feature) {
+                echo $feature."<br/>";
+            }
+            
+            echo'<br/></h4>';
             ?>
         
         
@@ -149,9 +156,29 @@ include '../includes/config.php';
                         <form id="bookingForm" action="planTrip_process.php" method="POST" onsubmit="return validateForm(this);">
         
                         <h3>Plan Your Trip </h3>
-        
+
+                        <?php
+                            // Query to fetch the latest BookingID
+                            $booking_id_sql = "SELECT BookingID FROM reservation ORDER BY BookingID DESC LIMIT 1";
+                            
+                            // Execute the query
+                            $result = $conn->query($booking_id_sql);
+                            
+                            // Check if there's any result
+                            if ($result->num_rows > 0) {
+                                // Fetch the last BookingID and increment it
+                                $last_id = $result->fetch_assoc();
+                                $new_booking_id = $last_id['BookingID'] + 1; // Remove extra space in 'BookingID'
+                            } else {
+                                // If no records exist, start from 1 or any base ID
+                                $new_booking_id = 1;
+                            }
+
+                            // Now, $new_booking_id will contain the new booking ID
+                        ?>
+
                         Booking ID:
-                        <input type="text" name="bid" disabled value="<?php echo '' ?>"><br><br>
+                        <input type="text" name="bid" disabled value="<?php echo $new_booking_id ?>"><br><br>
         
                         VehicleID:
                         <input type="text" name="vId" value="<?php echo $vehicle['vehicleID'] ?>"><br><br>
@@ -163,10 +190,10 @@ include '../includes/config.php';
                         <input type="text" name="destination" placeholder="Colombo to kandy" required><br><br>
         
                         <label for="start_date" >Rental Strat Date & Time:</lable>
-                        <input type="datetime-local"  name="start_date" id="pickup_date" onchange="calculateTotalAmount()" required><br><br>
+                        <input type="datetime-local"  name="start_date" id="pickup_date" onchange="calculateTotalAmount('pickup_date', 'return_date', 'total_amount', 'price')" required><br><br>
                        
                         <label for="return_date">Rental End Date:</label>
-                        <input type="datetime-local" name="return_date" id="return_date" onchange="calculateTotalAmount()" required><br><br>
+                        <input type="datetime-local" name="return_date" id="return_date" onchange="calculateTotalAmount('pickup_date', 'return_date', 'total_amount', 'price')" required><br><br>
         
                         No Of Members:
                         <input type="number" name="numberofMembers" required><br><br>
@@ -175,14 +202,15 @@ include '../includes/config.php';
                         <textarea  rows="4" cols="35" name = "addnote" placeholder="Note"></textarea><br><br>
         
                         Do you want a driver? 
-                        <input type="radio" name="driver" value="yes" onclick="calculateTotalAmount()"> Yes
-                        <input type="radio" name="driver" value="no" checked onclick="calculateTotalAmount()"> No
+                        <input type="radio" name="driver" value="yes" onclick="calculateTotalAmount('pickup_date', 'return_date', 'total_amount', 'price')"> Yes
+                        <input type="radio" name="driver" value="no" checked onclick="calculateTotalAmount('pickup_date', 'return_date', 'total_amount', 'price')"> No
                         <br><br>
         
         
                         <div id="total_amount" style="margin-top: 20px; font-size: 18px; font-weight: bold;">
                             
                         </div>
+                        <input type="hidden" name="price" id="price">
         
                         <input type="checkbox" id="chkBox" onclick="enableButton()">We charge Rs.100 for every additional kilometer exceeded.
                         <br><br>
@@ -209,10 +237,10 @@ include '../includes/config.php';
                         <input type="text" name="destination" placeholder="Destination" required><br><br>
         
                         <label for="start_date" >Rental Strat Date & Time:</lable>
-                        <input type="datetime-local"  name="start_date" id="pickup_date" onchange="calculateTotalAmount()" required><br><br>
+                        <input type="datetime-local"  name="start_date" id="pickup_date1" onchange="calculateTotalAmount('pickup_date1', 'return_date1', 'total_amount1', 'price1')" required><br><br>
                        
                         <label for="return_date">Rental End Date:</label>
-                        <input type="datetime-local" name="return_date" id="return_date" onchange="calculateTotalAmount()" required><br><br>
+                        <input type="datetime-local" name="return_date" id="return_date1" onchange="calculateTotalAmount('pickup_date1', 'return_date1', 'total_amount1', 'price1')" required><br><br>
         
                         No Of Members:
                         <input type="number" name="numberofMembers" required><br><br>
@@ -221,18 +249,19 @@ include '../includes/config.php';
                         <textarea  rows="4" cols="35" name ="addnote" placeholder="Note"></textarea><br><br>
         
                         Do you want a driver? 
-                        <input type="radio" name="driver" value="yes" onclick="calculateTotalAmount()"> Yes
-                        <input type="radio" name="driver" value="no" checked onclick="calculateTotalAmount()"> No
+                        <input type="radio" name="driver" value="yes" onclick="calculateTotalAmount('pickup_date1', 'return_date1', 'total_amount1', 'price1')"> Yes
+                        <input type="radio" name="driver" value="no" checked onclick="calculateTotalAmount('pickup_date1', 'return_date1', 'total_amount1', 'price1')"> No
                         <br><br>
         
         
-                        <div id="total_amount" style="margin-top: 20px; font-size: 18px; font-weight: bold;">
+                        <div id="total_amount1" style="margin-top: 20px; font-size: 18px; font-weight: bold;">
                             
                         </div>
+                        <input type="hidden" name="price" id="price1">
         
                         <input type="checkbox" id="chkBox2" onclick="enableButton2()">We charge Rs.100 for every additional kilometer exceeded.
                         <br><br>
-                        <input type="submit" value="update" id="submitbtn" class="rent" disabled >
+                        <input type="submit" value="update" id="submitbtn" class="rent" >
                         </form>
                     </div>
         </div>

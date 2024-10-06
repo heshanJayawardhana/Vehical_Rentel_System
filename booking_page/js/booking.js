@@ -33,15 +33,15 @@
 
 
 //calculate amount when user select date time
-function calculateTotalAmount() {
+function calculateTotalAmount(pickup_date, return_date, show_total, price) {
 	// Get the input values for pickup and return dates
-	var pickupDate = new Date(document.getElementById('pickup_date').value);
-	var returnDate = new Date(document.getElementById('return_date').value);
+	var pickupDate = new Date(document.getElementById(pickup_date).value);
+	var returnDate = new Date(document.getElementById(return_date).value);
 
 	// Ensure both dates are selected
-	if (!document.getElementById('pickup_date').value || !document.getElementById('return_date').value || pickupDate >= returnDate) 
+	if (!document.getElementById(pickup_date).value || !document.getElementById(return_date).value || pickupDate >= returnDate) 
 	{
-		document.getElementById('total_amount').innerHTML = "Please select valid dates!";
+		document.getElementById(show_total).innerHTML = "Please select valid dates!";
 
 		return ;
 	}
@@ -86,7 +86,8 @@ function calculateTotalAmount() {
 	}
 
 	// Display the total amount
-	document.getElementById('total_amount').innerHTML = "Total Amount:-Rs: " +amount;
+	document.getElementById(show_total).innerHTML = "Total Amount:-Rs: " +amount;
+	document.getElementById(price).value = amount;
 	
 }
 

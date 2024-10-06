@@ -1,6 +1,6 @@
 <?php
 
-require 'config.php';
+require '../includes/config.php';
 
         //id - already set to auto increment 
         $bID=$_POST['bid']; 
@@ -12,6 +12,7 @@ require 'config.php';
         $mber =$_POST["numberofMembers"];
         $note=$_POST["addnote"];
         $Needdriver =$_POST["driver"];
+        $charge =$_POST["price"];
 
         if(empty($bID)||empty($vehicleNo)||empty($contact)||empty($desty)||empty($start)||empty($end)||empty($mber)||empty($Needdriver))
         {
@@ -27,13 +28,14 @@ require 'config.php';
                 RentalEndDate_Time ='$end' ,
                 NoOfMembers='$mber',
                 AdditionalNote='$note',
-                NeedaDriver='$Needdriver'
+                NeedaDriver='$Needdriver',
+                amount = '$charge'
                 WHERE BookingID = '$bID'";
 
                 if($conn->query($sql))
                 {
                     echo "<script>alert('Booking Updated!')</script>";
-                    header("Location: booking.php");
+                    header("Location: ./booking.php?carID=6");
             //user head to booking page change here 
             //link payment page
 
