@@ -10,13 +10,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Start the session
     session_start();
 
-    $ID = $_POST["ID"];
+    $email = $_POST["user_email"];
 
     // Prepare the SQL statement
-    $stmt = $conn->prepare("DELETE FROM contact_requests WHERE ID = ?");
+    $stmt = $conn->prepare("DELETE FROM contact_requests WHERE email = ?");
     
     // Bind the parameter
-    $stmt->bind_param("i", $ID); // Assuming ID is an integer
+    $stmt->bind_param("s", $email); // Assuming email is an integer
 
     // Execute the statement
     if ($stmt->execute()) {

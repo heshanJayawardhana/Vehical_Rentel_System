@@ -19,7 +19,7 @@
 
     <main>
         <section class="hero-image">
-            <img src="./images/car2.jpg" alt="Hero Image">
+            <img src="./images/trip.jpg" alt="Hero Image">
         </section>
 
         <section class="services">

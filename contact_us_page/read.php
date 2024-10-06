@@ -78,8 +78,8 @@
     <fieldset>
             <form method="post" action="./delete.php" >
                 
-                <lable class="label">Enter the ID to  delete the table</lable><br>
-                <input type="text" name="ID" placeholder="Enter the ID "><br>
+                <lable class="label">Enter the Email to  delete the table</lable><br><br>
+                <input type="email" name="user_email" placeholder="Enter the Email . . "><br><br>
                 <button type="submit" value="delete"><a href="delete.php" style="text-decoration: none; color:white;">DELETE</button>
             
             </form>
