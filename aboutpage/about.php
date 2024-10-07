@@ -4,7 +4,7 @@
     <!-- add a title (a) -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EasyRide</title>
+    <title>About|EasyRide</title>
     <link rel="stylesheet" type="text/css" href="./about.css"/>
     <link rel="stylesheet" type="text/css" href="./aboutanime.css" />
     <script src="myScript.js"></script>
