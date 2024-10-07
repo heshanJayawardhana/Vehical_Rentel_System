@@ -22,13 +22,13 @@ header {
 main .form_frame {
     padding: 15px;
     border-radius: 10px;
-    background-color: rgb(245, 239, 231);
+    background-color: rgb(231, 231, 245);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 15px;
-    box-shadow: 0 5px 10px rgba(39, 35, 31, 0.548);
+    box-shadow: 0 5px 10px rgba(32, 31, 39, 0.548);
 }
 
 .form_frame form {
@@ -54,7 +54,7 @@ form section fieldset {
     outline: none;
 }
 
-form .input_frame {
+form .form_box {
     display: flex;
     flex-direction: column;
     gap: 3px;
@@ -64,9 +64,9 @@ form input,
 form textarea {
     width: 300px;
     font-size: 1em;
-    padding: 10px 5px;
+    padding: 10px 5px; 
     outline: none;
-    border: 1px solid saddlebrown;
+    border: 1px solid rgb(19, 33, 139);
     border-radius: 10px;
     transition: all ease-in-out .35s;
     text-align: right;
@@ -77,17 +77,18 @@ form textarea {
 form fieldset label {
     font-size: .85em;
     font-weight: 600;
-    color: rgba(90, 53, 27, 0.75);
+    color: rgba(34, 27, 90, 0.75);
     margin-left: 15px;
 }
 
 form img {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
+    margin-top: 15px;
     object-fit: cover;
     object-position: center;
     border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(31, 19, 11, 0.664);
+    box-shadow: 0 2px 5px rgba(17, 11, 31, 0.664);
 }
 
 form .button_row {
@@ -108,8 +109,8 @@ form .button_row button {
     text-transform: uppercase;
     padding: 15px;
     border-radius: 5px;
-    background-color: saddlebrown;
-    color: antiquewhite;
+    background-color: rgb(19, 23, 139);
+    color: rgb(218, 215, 250);
     transition: all ease-in-out .35s;
 }
 
@@ -119,7 +120,7 @@ form input:hover,
 form textarea:hover,
 form .button_row button:hover,
 .delete_btn:hover  {
-    box-shadow: 0 2px 5px rgba(31, 19, 11, 0.664);
+    box-shadow: 0 2px 5px rgba(12, 11, 31, 0.664);
 }
 
 
@@ -128,4 +129,12 @@ form .button_row button:hover,
     margin-top: 25px;
     letter-spacing: 2px;
     text-align: center;
+}
+
+form textarea {
+    width: 100%;
+}
+
+.address_box {
+    width: 80%;
 }

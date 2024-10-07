@@ -66,7 +66,7 @@ include '../includes/config.php';
                         </div>
                     </fieldset>
                 </section>
-                <div class="form_box">
+                <div class="form_box address_box">
                     <label for="">Address :</label>
                     <textarea name="address" id="address"><?php echo $user['address'] ?></textarea>
                 </div>
