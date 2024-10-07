@@ -13,78 +13,6 @@ body {
     margin: 0;
 }
 
-.logo{
-    width: 80px;
-    cursor: pointer;
-}
-.name {
-    text-align: center;
-    margin-top: -60px;
-    font-style: italic;
-    font-weight: bold;
-}
-.user-profile img {
-    width: 40px; 
-    height: 40px; 
-    border-radius: 50%; 
-    margin-right: 10px; 
-    cursor: pointer;
-    padding: 8px 12px;
-    border : none;
-    position:absolute;
-    right:10px;
-    top: 10px;
-    margin-top: -5px;
-}
-.logout-btn {
-    background-color: #9b9b9b;
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;   
-    right: 10px; 
-    margin-top: 45px;
-}
-
-.navbar {
-    width: 100%;
-    margin-right: -20px;
-    padding: 10px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgb(0, 0, 69);
-}
-
-.navbar ul li {
-    list-style: none;
-    display: inline-block;
-    margin: 0 20px;
-    position: relative;
-}
-
-.navbar ul li a {
-    text-decoration: none;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: small;
-}
-
-.navbar ul li::after {
-    content: '';
-    height: 3px;
-    width: 0%;
-    background: #73dcef;
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    transition: 0.5s;
-}
-.navbar ul li:hover::after {
-    width: 100%;
-}
 
 
 .container {
@@ -185,38 +113,4 @@ button[type = "submit"] {
 button[type = "submit"]:hover {
     background-color:rgb(36, 129, 206);
 }
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-}
 
-.footer-sections {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-.footer-column ul {
-    list-style-type: none;
-}
-
-.footer-column ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-.footer-newsletter form {
-    display: flex;
-    flex-direction: column;
-}
-
-.footer-newsletter input {
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-footer p {
-    text-align: center;
-    margin-top: 20px;
-}
