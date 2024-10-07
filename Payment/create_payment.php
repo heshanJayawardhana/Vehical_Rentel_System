@@ -4,37 +4,48 @@ include '../includes/config.php'; // Database connection
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Validate and sanitize input data
-    $firstname = htmlspecialchars($_POST['firstname']);
-    $lastname = htmlspecialchars($_POST['lastname']);
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $method = htmlspecialchars($_POST['method']);
+    $pay_id = $_POST['payment_id'];
+    $firstname = htmlspecialchars(trim($_POST['firstname']));
+    $lastname = htmlspecialchars(trim($_POST['lastname']));
+    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+    $method = htmlspecialchars(trim($_POST['method']));
     $totalPrice = filter_var($_POST['totalPrice'], FILTER_VALIDATE_FLOAT);
-    $creditCardNum = $method === 'card-payment' ? htmlspecialchars($_POST['creditCardNum']) : null;
-    $date = $method === 'card-payment' ? htmlspecialchars($_POST['date']) : null;
-    $cvv = $method === 'card-payment' ? htmlspecialchars($_POST['cvv']) : null;
-    $receipt = $method === 'cash-payment' ? $_FILES['receipt']['name'] : null;
+    $creditCardNum = ($method === 'card-payment') ? htmlspecialchars(trim($_POST['creditCardNum'])) : null;
+    $date = ($method === 'card-payment') ? htmlspecialchars(trim($_POST['date'])) : null;
+    $cvv = ($method === 'card-payment') ? htmlspecialchars(trim($_POST['cvv'])) : null;
+    $receipt = ($method === 'cash-payment' && isset($_FILES['receipt'])) ? $_FILES['receipt']['name'] : null;
 
     // Handle file upload for receipt if the method is cash payment
     if ($method === 'cash-payment' && isset($_FILES['receipt'])) {
         $targetDir = "uploads/"; // Ensure this directory exists
         $targetFile = $targetDir . basename($_FILES['receipt']['name']);
-        if (!move_uploaded_file($_FILES['receipt']['tmp_name'], $targetFile)) {
-            die('Error uploading receipt.');
+        
+        // Validate file type and size
+        $allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+        $fileType = mime_content_type($_FILES['receipt']['tmp_name']);
+        
+        if (in_array($fileType, $allowedTypes) && $_FILES['receipt']['size'] <= 5000000) { // Limit to 5MB
+            if (!move_uploaded_file($_FILES['receipt']['tmp_name'], $targetFile)) {
+                die('Error uploading receipt.');
+            }
+        } else {
+            die('Invalid file type or size.');
         }
     }
 
     // Prepare SQL query to insert payment data
-    $stmt = $conn->prepare("INSERT INTO payment (firstname, lastname, email, method, creditCardNum, date, cvv, receipt, totalPrice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO payment ( payment_id, firstname, lastname, email, method, creditCardNum, date, cvv, receipt, totalPrice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     if ($stmt === false) {
-        die("Prepare failed: " . $conn->error);
+        error_log("Prepare failed: " . $conn->error);
+        die('Database error. Please try again later.');
     }
 
     // Bind the parameters and execute the query
-    $stmt->bind_param("ssssssssd", $firstname, $lastname, $email, $method, $creditCardNum, $date, $cvv, $receipt, $totalPrice);
+    $stmt->bind_param("issssssssd", $pay_id, $firstname, $lastname, $email, $method, $creditCardNum, $date, $cvv, $receipt, $totalPrice);
 
     if ($stmt->execute()) {
         // Get the ID of the last inserted record
-        $last_id = $stmt->insert_id;
+        $last_id = $pay_id;
 
         // Fetch the newly inserted payment record to display it
         $result = $conn->query("SELECT * FROM payment WHERE payment_id = $last_id");
@@ -44,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->close();
         $conn->close();
     } else {
+        error_log("SQL Error: " . $stmt->error); // Log the error for debugging
         echo "<script>
                 Swal.fire({
                     title: 'Error!',
@@ -51,7 +63,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     icon: 'error'
                 });
               </script>";
-        error_log("SQL Error: " . $stmt->error); // Log the error for debugging
     }
 }
 ?>
@@ -67,9 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
 
-    <?php
-        include '../includes/header.php';
-    ?>
+    <?php include '../includes/header.php'; ?>
 
     <div class="container1">
     <h2>Payment Confirmation</h2>
@@ -129,9 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <?php endif; ?>
     </div>
 
-    <?php
-        include '../includes/footer.php';
-    ?>
+    <?php include '../includes/footer.php'; ?>
 
 </body>
 </html>

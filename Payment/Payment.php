@@ -29,6 +29,16 @@
                 exit();
             }
 
+            $pay_sql = $conn -> query("SELECT * FROM payment ORDER BY payment_id DESC LIMIT 1");
+
+            if ($pay_sql -> num_rows > 0) {
+                $get_pay = $pay_sql -> fetch_assoc();
+                $pay_id = $get_pay['payment_id'] + 1; 
+            } else {
+                $pay_id = 1;
+            }
+
+
         } else {
             
             $_SESSION['error_message'] = 'Log In First !';
@@ -42,6 +52,7 @@
         <div class="wrapper-form">
         <h1>Payment Form</h1>
                 <form action="./create_payment.php" method="post" enctype="multipart/form-data" onsubmit="confirmPayment(event)">
+                    <input type="hidden" name="payment_id" value="<?php echo $pay_id ?>">
                     <div class="group-form">
                         <label for="firstname">First Name</label>
                         <input type="text" id="firstname" name="firstname" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed" value="<?php echo $user_data['first_name'] ?>">
