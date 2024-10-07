@@ -52,11 +52,6 @@
 
 
       <!-- Buttons Section -->
-      <div class="ride-btn-container">
-        <button class="ride-btn">Find Your Ride</button>
-        <p class="member-para">Already a Member?</p>
-        <button class="login-btn">Login</button>
-    </div>
     
     <!-- Services Buttons -->
     <div class="service-btn-container">
