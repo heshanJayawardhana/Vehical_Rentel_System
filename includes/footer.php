@@ -18,20 +18,20 @@
 
             <!-- Footer Navigation Links -->
             <ul class="footer-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Vehicles</a></li>
-                <li><a href="#">Reviews</a></li>
-                <li><a href="#">Help</a></li>
+                <li><a href="../home_page/index.php">Home</a></li>
+                <li><a href="../aboutpage/about.php">About</a></li>
+                <li><a href="../contact_us_page/ContactUs.php">Contact Us</a></li>
+                <li><a href="../services_page/services.php">Services</a></li>
+                <li><a href="../vehicle_page/vehiclepg.php">Vehicles</a></li>
+                <li><a href="../review_page/review.php">Reviews</a></li>
+                <li><a href="../help_page/helppg.php">Help</a></li>
             </ul>
 
             <!-- Footer Copyright -->
             <div class="footer-bottom">
                 <p>Copyright ©2022</p>
-                <a href=""><p>Terms & Conditions</p></a>
-                <a href=""><p>Privacy Policy</p></a>
+                <a href="../terms_and_conditions/terms and condition page.php"><p>Terms & Conditions</p></a>
+                <a href="#"><p>Privacy Policy</p></a>
             </div>
         </div>
     </footer>

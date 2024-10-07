@@ -64,11 +64,11 @@
                             <a href="../services_page/services.php">Services</a>
                             <a href="../vehicle_page/vehiclepg.php">vehicle</a>
                             <a href="../review_page/review.php">Reviews</a>
+                            <a href="../help_page/helppg.php">Help</a>
                         </div>
                     
                     </div>
                     
-                    <a class="header_link" href="">Help</a>
                 </div>
                 
                 <div class="mini_header">
