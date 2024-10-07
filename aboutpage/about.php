@@ -4,12 +4,12 @@
     <!-- add a title (a) -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EasyRide</title>
+    <title>About|EasyRide</title>
     <link rel="stylesheet" type="text/css" href="./about.css"/>
     <link rel="stylesheet" type="text/css" href="./aboutanime.css" />
     <script src="myScript.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="js/aboutanime.js"></script>
+    <script src="./aboutanime.js"></script>
   </head>
   <body class="aboutUs">
     <!-- add a logo (b) -->
