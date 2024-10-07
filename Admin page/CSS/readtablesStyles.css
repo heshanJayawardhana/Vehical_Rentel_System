@@ -1,0 +1,56 @@
+body{
+    overflow-x: auto;
+}
+
+table{
+    text-align:center;
+}
+
+div {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    width: 100%; /* Container should take full width */
+}
+
+tr:first-child{
+    background-color:#171c50;
+    color:white;
+}
+
+
+tr:not(:first-child) td:last-child{
+    background-color: #171c50;
+   
+    
+}
+
+tr:not(:first-child) td:last-child:hover{
+    background-color: #3da8d5;
+    border:1px solid #01031b;
+    
+}
+
+a{
+    text-decoration:none;
+    color:white;
+}
+
+tr:not(:first-child) td:nth-last-child(2){
+    background-color: #171c50;
+}
+
+tr:not(:first-child) td:nth-last-child(2):hover{
+    border:1px solid #3da8d5;
+}
+
+
+table tr:hover {background-color: #3da8d5;}
+
+button {
+    width: 100%; /* Make the button full width */
+    height: 100%; /* Make the button full height */
+    border: none; /* Remove the border */
+    background-color:#171c50; /* Change to your desired background color */
+    color: white; /* Change text color if needed */
+    cursor: pointer; /* Change the cursor to pointer */
+    font-size: inherit; /* Inherit font size from parent */
+}

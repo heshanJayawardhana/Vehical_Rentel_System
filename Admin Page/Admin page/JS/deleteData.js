@@ -1,3 +1,0 @@
-document.getElementsByClassName('deleteBtn'){
-    row = 
-}

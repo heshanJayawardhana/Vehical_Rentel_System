@@ -1,0 +1,68 @@
+body{
+    background-image:url('../img/coolg.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: auto; /* Allows vertical scrolling */
+    display:flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;  /* Center vertically */
+}
+
+.container {
+    max-height: 100vh; /* Limit height to viewport */
+    overflow-y: auto; /* Enable scrolling */
+    padding: 20px; /* Adjust padding */
+    border: 1px solid #ccc; /* Optional: Border for visibility */
+}
+
+
+form,input, select,textarea {
+    width: 100%;              /* Sets the width of the input/select elements to 100% of their parent container */
+    padding: 12px 20px;      /* Applies padding of 12 pixels vertically and 20 pixels horizontally */
+    margin: 8px 0;           /* Adds vertical margins of 8 pixels above and below the elements */
+    display: inline-block;    /* Makes the elements respect width and height, allowing for margin and padding */
+    border: 1px solid #ccc;  /* Adds a 1-pixel solid border with a light gray color */
+    border-radius: 4px;      /* Rounds the corners of the border with a radius of 4 pixels */
+    box-sizing: border-box;  
+    font-weight: bold; /* Ensures the width includes padding and border */
+  }
+
+  input, select,textarea {
+    background-color:white;
+  }
+
+input:hover,
+select:hover,
+textarea:hover {
+    background-color: #686565;
+    color:white;
+}
+  
+input[type=submit] {
+    width: 100%;
+    background-color: #060606;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;;
+  }
+
+  input[type=submit]:hover {
+    background-color: #242624;
+  }
+  
+  div {
+    width: 40%;  /* Set width of the container */
+    max-height: 90vh;  /* Set maximum height to viewport height */
+    overflow-y: auto;  /* Allow vertical scrolling */
+    padding: 20px;  /* Padding */
+    color:black;
+    opacity:80%;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+  }
+  

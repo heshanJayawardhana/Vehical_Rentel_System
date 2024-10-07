@@ -1,6 +1,6 @@
 <?php
 // Link the configuration file
-require_once '../../PHP/config.php';
+require_once './../includes/config.php';
 
 ?>
 
@@ -127,18 +127,18 @@ require_once '../../PHP/config.php';
         <div class="options" id="accounts">Manage Accounts</div>
 
         <!-- Hidden sections initially, displayed when hovering over the accounts button -->
-        <div class="options hide" id="customer"><a href="readTables.php?name=customer">Customers</a></div>
-        <div class="options hide" id="driver"><a href="readTables.php?name=driver">Drivers</div>
-        <div class="options hide" id="rentalagent"><a href="readTables.php?name=rentalagent">Rental Agents</div>
-        <div class="options hide" id="rentalagent"><a href="readTables.php?name=rentalagent">Vehicle Owners</div>
-        <div class="options hide" id="staff"><a href="readTables.php?name=staff">Staff</div>
-        <div class="options hide" id="reservation"><a href="readTables.php?name=reservation">Reservations</div>
-        <div class="options hide" id="rental"><a href="readTables.php?name=rental">Rentals</div>
-        <div class="options hide" id="payment"><a href="readTables.php?name=payment">Payments</div>
-        <div class="options hide" id="cuscontact"><a href="readTables.php?name=cuscontact">Customer Contacts</div>
-        <div class="options hide" id="cusemail"><a href="readTables.php?name=cusemail">Customer Emails</div>
-        <div class="options hide" id="branch"><a href="readTables.php?name=branch">Branch</div>
-        <div class="options hide" id="branchcontact"><a href="readTables.php?name=branchcontact">Branch Contacts</div>
+        <div class="options hide" id="customer"><a href="readtablesnew.php?name=customer">Customers</a></div>
+        <div class="options hide" id="driver"><a href="readtablesnew.php?name=driver">Drivers</div>
+        <div class="options hide" id="rentalagent"><a href="readtablesnew.php?name=rentalagent">Rental Agents</div>
+        <div class="options hide" id="vehicleowner"><a href="readtablesnew.php?name=vehicleowner">Vehicle Owners</div>
+        <div class="options hide" id="staff"><a href="readtablesnew.php?name=staff">Staff</div>
+        <div class="options hide" id="reservation"><a href="readtablesnew.php?name=reservation">Reservations</div>
+        <div class="options hide" id="rental"><a href="readtablesnew.php?name=rental">Rentals</div>
+        <div class="options hide" id="payment"><a href="readtablesnew.php?name=payment">Payments</div>
+        <div class="options hide" id="contact_requests"><a href="readtablesnew.php?name=contact_requests">Customer Contacts</div>
+        <div class="options hide" id="cusemail"><a href="readtablesnew.php?name=cusemail">Customer Emails</div>
+        <div class="options hide" id="branch"><a href="readtablesnew.php?name=branch">Branch</div>
+        <div class="options hide" id="branchcontact"><a href="readtablesnew.php?name=branchcontact">Branch Contacts</div>
         <div class="options" style="background-color:rgb(201, 118, 191);">View User Reviews</div>
     </div>
 
