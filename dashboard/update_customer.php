@@ -72,7 +72,7 @@ include '../includes/config.php';
                 </div>
                 <div class="form_box">
                     <label for="img">
-                        <img src="<?php echo $user['profile_image'] ?>" alt="profile_picture">
+                        <img id="showPic" src="<?php echo $user['profile_image'] ?>" alt="profile_picture">
                         <input type="file" name="img" id="img" hidden>
                     </label>
                 </div>
@@ -84,6 +84,21 @@ include '../includes/config.php';
             </form>
         </div>
     </main>
+
+    <script>
+        // image upload
+        let getImg = document.getElementById('img');
+        getImg.addEventListener('change', (event) => {
+            let pic = event.target.files[0];
+            if (pic) {
+                let showImg = document.getElementById('showPic');
+                let newSrc = URL.createObjectURL(pic);
+
+                showImg.src = newSrc;
+                showImg.onload = () => URL.revokeObjectURL(newSrc)
+            }
+        });
+    </script>
 
 <?php
     include '../includes/footer.php';
