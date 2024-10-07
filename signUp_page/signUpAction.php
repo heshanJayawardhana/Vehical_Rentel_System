@@ -94,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
         // header("Location: path_to_profile_dashboard");
         echo 'Registration Succeeded :) \n ' . $_SESSION['user_id'];
+        header("Location: ../dashboard/customer_profile.php");
         exit();
     } else { // Corrected here
         // redirect to error page if there are any
