@@ -12,6 +12,11 @@
     font-family: "DM Sans", sans-serif;
 }
 
+body {
+    background-color: ghostwhite;
+    background: url('../../home_page/images/homebg.avif');
+}
+
 .frame{
     display: flex;
     width: 100%;
@@ -31,17 +36,23 @@
 
 .subframe:nth-child(1) a{
     background-color: rgb(0, 11, 73);
-    color: aliceblue;
+    color: ghostwhite;
     flex: 1;
     display: flex;
     align-items: center;
-    padding-left: 15px;
+    padding-left: 1em;
+    letter-spacing: 1px;
+    font-weight: 500;
     text-decoration: none;
-    font-size: 20px;
+    /* font-size: 20px; */
+    transition: all ease-in-out .35s;
 }
 
 .subframe:nth-child(1) a:hover{
-    background-color: blueviolet;
+    background-color: ghostwhite;
+    color: rgb(0, 11, 73);
+    letter-spacing: 1px;
+    font-weight: 700;
 }
 
 .subframe:nth-child(2){
@@ -51,3 +62,58 @@
     align-items: center;
 }
 
+.subframe:nth-child(2) .mini_frame {
+    padding: 15px;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.subframe:nth-child(2) .mini_frame img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    object-position: center;
+    box-shadow: 0 5px 10px rgba(32, 32, 56, 0.719);
+}
+
+.subframe:nth-child(2) .mini_frame h3 {
+    font-size: 3.5em;
+}
+
+.subframe:nth-child(2) .mini_frame .data {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: right;
+    color: rgb(26, 47, 71);
+}
+
+.subframe:nth-child(2) .mini_frame .data p {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.subframe:nth-child(2) .mini_frame .data p:nth-child(2) {
+    margin-right: 50px;
+}
+
+.subframe:nth-child(2) .mini_frame .data p:nth-child(3) {
+    margin-right: 100px;
+}
+
+.subframe:nth-child(2) .mini_frame .data p:nth-child(4) {
+    margin-right: 150px;
+}
+
+.subframe:nth-child(2) .mini_frame .data p:nth-child(2)::after, 
+.subframe:nth-child(2) .mini_frame .data p:nth-child(3)::after, 
+.subframe:nth-child(2) .mini_frame .data p:nth-child(4)::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 100%;
+    background-color: rgb(44, 85, 104);
+    right: -15px;
+}
