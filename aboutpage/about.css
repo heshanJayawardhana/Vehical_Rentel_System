@@ -15,7 +15,7 @@
 	/*about page*/
 
 .aboutUs{
-	  background-image: url(../images/r3.svg);
+	  background-image: url("r3.svg");
 	  background-size:cover;
 	  background-position: center;
 	  background-repeat: no-repeat;
