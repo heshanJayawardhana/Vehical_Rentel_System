@@ -66,7 +66,7 @@ include '../includes/config.php';
                         </div>
                     </fieldset>
                 </section>
-                <div class="form_box">
+                <div class="form_box address_box">
                     <label for="">Address :</label>
                     <textarea name="address" id="address"><?php echo $user['address'] ?></textarea>
                 </div>
@@ -81,6 +81,7 @@ include '../includes/config.php';
                     <button type="reset">cancel</button>
                     <button type="submit">update</button>
                 </div>
+                <a href="../includes/delete_user.php" class="delete_row">Delete User</a>
             </form>
         </div>
     </main>
