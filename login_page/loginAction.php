@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $driver_data['user_id'];
             $_SESSION['profile_image'] = $driver_data['profile_image'];
 
-            echo '<p>Login Succeeded!</p><h1>'.$driver_data['first_name'].' '.$driver_data['last_name'].'</h1>';
+            header("Location: ../dashboard/customer_profile.php");
             exit();
         }
     }
