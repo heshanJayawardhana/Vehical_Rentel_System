@@ -87,7 +87,7 @@ foreach ($vehicle_types as $car_type) {
 ?>
      
 
-            ?>
+            
             
         </section>
 
