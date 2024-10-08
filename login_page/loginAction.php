@@ -50,6 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($email === 'easyride@admin.vr' && $pwd === 'rental2024' ) { // admin credentials easyride@admin.vr => rental2024
         
+        // Start the session
+        session_start();
+
         $_SESSION['type'] = 'admin';
         $_SESSION['user_id'] = 'admin';
         $_SESSION['profile_image'] = '../img/administration-vector-icon.jpg';

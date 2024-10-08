@@ -9,8 +9,14 @@ require_once '../../includes/config.php';
 
 
     <style>
-        body {
+         body {
             background-color: rgb(96, 203, 239);
+            background-image: url('../img/carwall.jpg'); /* Path to your image */
+            background-size: cover; /* Ensures the image covers the entire area */
+            background-position: right; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            background-blend-mode: overlay; /* Blends the image with the background color */
+            opacity: 0.9; /* Makes the image slightly transparent for a smoother blen*/
         }
 
         @keyframes profile-animation {
@@ -28,7 +34,13 @@ require_once '../../includes/config.php';
             color:inherit;
         }
 
+        header {
+            width: 100% !important;
+        }
 
+        footer {
+            width: 100% !important;
+        }
 
         /* Style the admin profile */
         .profile {
@@ -91,17 +103,16 @@ require_once '../../includes/config.php';
             width:600px;
         }
         .side {
-            position: absolute;
-            top: 25%;
+            position: relative;
+            /* top: 25%; */
+            width: fit-content;
+            margin-top: 25px;
             animation:sidebars-animation 1s forwards;
             
             /*transform: translate(-50%, -50%);*/
         }
 
-        /* Hide initially */
-        .hide {
-            display: none;
-        }
+        
 
         /* Toggle hidden items
         #accounts:hover + .hide {
@@ -110,39 +121,45 @@ require_once '../../includes/config.php';
     </style>
 </head>
 <body>
+
+<?php 
+include './admin_header.php';
+?>
     <!-- Create the profile of the admin -->
     <div class="profile">
 
-       <!--WELCOME msg--->
-        <span class="large-text">WELCOME</span>
+       <!--WELCOME msg
+        <span class="large-text">WELCOME</span>--->
 
 
-        <span class="medium-text">Nuwan Perera</span>
-        <h4>IT Administrator</h4>
+        
+        <h1>Welcome IT Administrator</h1>
     
     </div>
 
     <!-- Sidebars -->
     <div class="side">
-        <div class="options" id="accounts">Manage Accounts</div>
+        
 
         <!-- Hidden sections initially, displayed when hovering over the accounts button -->
-        <div class="options hide" id="customer"><a href="readtablesnew.php?name=customer">Customers</a></div>
-        <div class="options hide" id="driver"><a href="readtablesnew.php?name=driver">Drivers</div>
-        <div class="options hide" id="rentalagent"><a href="readtablesnew.php?name=rentalagent">Rental Agents</div>
-        <div class="options hide" id="vehicleowner"><a href="readtablesnew.php?name=vehicleowner">Vehicle Owners</div>
-        <div class="options hide" id="staff"><a href="readtablesnew.php?name=staff">Staff</div>
-        <div class="options hide" id="reservation"><a href="readtablesnew.php?name=reservation">Reservations</div>
-        <div class="options hide" id="rental"><a href="readtablesnew.php?name=rental">Rentals</div>
-        <div class="options hide" id="payment"><a href="readtablesnew.php?name=payment">Payments</div>
-        <div class="options hide" id="contact_requests"><a href="readtablesnew.php?name=contact_requests">Customer Contacts</div>
-        <div class="options hide" id="cusemail"><a href="readtablesnew.php?name=cusemail">Customer Emails</div>
-        <div class="options hide" id="branch"><a href="readtablesnew.php?name=branch">Branch</div>
-        <div class="options hide" id="branchcontact"><a href="readtablesnew.php?name=branchcontact">Branch Contacts</div>
-        <div class="options" style="background-color:rgb(201, 118, 191);">View User Reviews</div>
+        <div class="options" id="customer"><a href="readtablesnew.php?name=customer">Customers</a></div>
+        <div class="options" id="driver"><a href="readtablesnew.php?name=driver">Drivers</div>
+        <div class="options" id="rentalagent"><a href="readtablesnew.php?name=rentalagent">Rental Agents</div>
+        <div class="options " id="staff"><a href="readtablesnew.php?name=staff">Staff</div>
+        <div class="options" id="reservation"><a href="readtablesnew.php?name=reservation">Reservations</div>
+        <div class="options" id="rental"><a href="readtablesnew.php?name=rental">Rentals</div>
+        <div class="options " id="payment"><a href="readtablesnew.php?name=payment">Payments</div>
+        <div class="options " id="contact_requests"><a href="readtablesnew.php?name=contact_requests">Customer Contacts</div>
+        <div class="options " id="cusemail"><a href="readtablesnew.php?name=cusemail">Customer Emails</div>
+        <div class="options " id="branch"><a href="readtablesnew.php?name=branch">Branch</div>
+        <div class="options " id="branchcontact"><a href="readtablesnew.php?name=branchcontact">Branch Contacts</div>
+       
     </div>
 
+<?php 
+    include './admin_footer.php';
+?>
 
-    <script src="../JS/accountTypes.js"></script>
+
 </body>
 </html>

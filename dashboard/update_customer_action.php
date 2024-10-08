@@ -4,6 +4,7 @@ session_start();
 include '../includes/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $user_id = $_POST['user_id'];
     $first_name = $_POST['f_name'];
     $last_name = $_POST['l_name'];
@@ -14,7 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $address = $_POST['address'];
 
     // Handle image upload
-    $imgPath = '../documents/customers/profile_pic/default.jpg'; // Default image path
+    // $imgPath = '../documents/customers/profile_pic/default.jpg'; // Default image path
+
     if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
         $imgFile = $user_id . '_profile_picture.' . pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
         $imgPath = '../documents/customers/profile_pic/' . $imgFile;
