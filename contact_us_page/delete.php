@@ -2,7 +2,7 @@
 
 require '../includes/config.php';
 
-session_start();
+// session_start();
 
 
 // Check for POST requests

@@ -2,14 +2,15 @@ document.getElementById("contactForm").addEventListener("submit", function(event
     event.preventDefault();
 
     // Input fields
-    let name = document.getElementById("name").value.trim();
+    let firstname = document.getElementById("firstname").value.trim();
+    let lastname = document.getElementById("lastname").value.trim();
     let email = document.getElementById("email").value.trim();
     let message = document.getElementById("message").value.trim();
     let formMessage = document.getElementById("formMessage");
 
     // Regex for email validation
     let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+    
     // Basic validation
     if (firstname === "") {
         formMessage.textContent = "Please enter your first name.";
