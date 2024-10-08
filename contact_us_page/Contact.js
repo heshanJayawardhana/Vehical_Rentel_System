@@ -5,6 +5,7 @@ document.getElementById("contactForm").addEventListener("submit", function(event
     let firstname = document.getElementById("firstname").value.trim();
     let lastname = document.getElementById("lastname").value.trim();
     let email = document.getElementById("email").value.trim();
+    let subject = document.getElementById("subject").value.trim();
     let message = document.getElementById("message").value.trim();
     let formMessage = document.getElementById("formMessage");
 
@@ -37,10 +38,5 @@ document.getElementById("contactForm").addEventListener("submit", function(event
         formMessage.style.color = "red";
         return;
     }
-
-    // Form is valid
-    formMessage.textContent = "Thank you for your message. We will get back to you soon!";
-    formMessage.style.color = "green";
-
-    // Optionally, you can proceed with sending the form data using an AJAX request or similar method here
+    
 });
