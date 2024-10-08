@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user_id'] = $customer_data['user_id'];
         $_SESSION['profile_image'] = $customer_data['profile_image'];
 
-        echo '<p>Login Succeeded!</p><h1>'.$customer_data['first_name'].' '.$customer_data['last_name'].'</h1> <p> Image Path'.$customer_data['profile_image'];
+        header("Location: ../dashboard/customer_profile.php");
         exit();
     } else {
         // Check drivers if no customer found

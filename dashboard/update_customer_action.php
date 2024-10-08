@@ -35,6 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sssssssss", $first_name, $last_name, $nic_number, $license_number, $address, $contact, $email, $imgPath, $user_id);
 
     if ($stmt->execute()) {
+
+        $_SESSION['profile_image'] = $imgPath;
+        
         header("Location: ../dashboard/customer_profile.php");
         exit();
     } else {
